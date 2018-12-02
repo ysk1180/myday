@@ -1,0 +1,261 @@
+<%= form_with(model: @post, local: true, id: 'aaa') do |form| %>
+
+  <div class="form-group">
+    <%= form.select :start,[["",nil],["4:00",4.0],["4:30",4.5],["5:00",5.0],["5:30",5.5],["6:00",6.0],["6:30",6.5],["7:00",7.0],["7:30",7.5],["8:00",8.0],["8:30",8.5],["9:00",9.0],["9:30",9.5],["10:00",10.0],["10:30",10.5],["11:00",11.0],["11:30",11.5],["12:00",12.0],["12:30",12.5],["13:00",13.0],["13:30",13.5],["14:00",14.0],["14:30",14.5],["15:00",15.0],["15:30",15.5],["16:00",16.0],["16:30",16.5],["17:00",17.0],["17:30",17.5],["18:00",18.0],["18:30",18.5],["19:00",19.0],["19:30",19.5],["20:00",20.0],["20:30",20.5],["21:00",21.0],["21:30",21.5],["22:00",22.0],["22:30",22.5],["23:00",23.0],["23:30",23.5],["24:00",24.0]], {}, {class: 'form-control'} %>
+  </div>
+
+  <div class="form-row" id="form-end1">
+    <div class="form-group col-7">
+      <%= form.text_area :content1, id: :content1, class:'form-control', rows:"1" %>
+    </div>
+
+    <div class="form-group col-3">
+      <%= form.select :end1,[["",nil],["4:00",4.0],["4:30",4.5],["5:00",5.0],["5:30",5.5],["6:00",6.0],["6:30",6.5],["7:00",7.0],["7:30",7.5],["8:00",8.0],["8:30",8.5],["9:00",9.0],["9:30",9.5],["10:00",10.0],["10:30",10.5],["11:00",11.0],["11:30",11.5],["12:00",12.0],["12:30",12.5],["13:00",13.0],["13:30",13.5],["14:00",14.0],["14:30",14.5],["15:00",15.0],["15:30",15.5],["16:00",16.0],["16:30",16.5],["17:00",17.0],["17:30",17.5],["18:00",18.0],["18:30",18.5],["19:00",19.0],["19:30",19.5],["20:00",20.0],["20:30",20.5],["21:00",21.0],["21:30",21.5],["22:00",22.0],["22:30",22.5],["23:00",23.0],["23:30",23.5],["24:00",24.0]], {}, {class: 'form-control'} %>
+    </div>
+  </div>
+
+  <div class="form-row" id="form-end2" style="display: none;">
+    <div class="form-group col-7">
+      <%= form.text_area :content2, id: :content2, class:'form-control', rows:"1" %>
+    </div>
+
+    <div class="form-group col-3">
+      <%= form.select :end2,[["",nil],["4:00",4.0],["4:30",4.5],["5:00",5.0],["5:30",5.5],["6:00",6.0],["6:30",6.5],["7:00",7.0],["7:30",7.5],["8:00",8.0],["8:30",8.5],["9:00",9.0],["9:30",9.5],["10:00",10.0],["10:30",10.5],["11:00",11.0],["11:30",11.5],["12:00",12.0],["12:30",12.5],["13:00",13.0],["13:30",13.5],["14:00",14.0],["14:30",14.5],["15:00",15.0],["15:30",15.5],["16:00",16.0],["16:30",16.5],["17:00",17.0],["17:30",17.5],["18:00",18.0],["18:30",18.5],["19:00",19.0],["19:30",19.5],["20:00",20.0],["20:30",20.5],["21:00",21.0],["21:30",21.5],["22:00",22.0],["22:30",22.5],["23:00",23.0],["23:30",23.5],["24:00",24.0]], {}, {class: 'form-control'} %>
+    </div>
+
+    <div class="form-group col-2">
+      <span id="close-end2">-</span>
+    </div>
+  </div>
+
+  <div class="form-row" id="form-end3" style="display: none;">
+    <div class="form-group col-7">
+      <%= form.text_area :content3, id: :content3, class:'form-control', rows:"1" %>
+    </div>
+
+    <div class="form-group col-3">
+      <%= form.select :end3,[["",nil],["4:00",4.0],["4:30",4.5],["5:00",5.0],["5:30",5.5],["6:00",6.0],["6:30",6.5],["7:00",7.0],["7:30",7.5],["8:00",8.0],["8:30",8.5],["9:00",9.0],["9:30",9.5],["10:00",10.0],["10:30",10.5],["11:00",11.0],["11:30",11.5],["12:00",12.0],["12:30",12.5],["13:00",13.0],["13:30",13.5],["14:00",14.0],["14:30",14.5],["15:00",15.0],["15:30",15.5],["16:00",16.0],["16:30",16.5],["17:00",17.0],["17:30",17.5],["18:00",18.0],["18:30",18.5],["19:00",19.0],["19:30",19.5],["20:00",20.0],["20:30",20.5],["21:00",21.0],["21:30",21.5],["22:00",22.0],["22:30",22.5],["23:00",23.0],["23:30",23.5],["24:00",24.0]], {}, {class: 'form-control'} %>
+    </div>
+
+    <div class="form-group col-2">
+      <span id="close-end3">-</span>
+    </div>
+  </div>
+
+  <div id="plus-button" class="square_btn"><i class="fa fa-check"></i>フォームに追加</div>
+
+  <div id="reload-button" class="square_btn"><i class="fa fa-check"></i> グラフに反映する</div>
+
+  <p>プレビュー</p>
+  <canvas id="myChart"></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
+
+<% end %>
+
+<button id="save-button" class="square_btn"><i class="fa fa-check"></i> 画像を確認する</button>
+
+<script>
+
+  $(function(){
+    $("#reload-button").on("click", function () {
+      const start = $("#start").val();
+      const content1 = $("#content1").val();
+      const end1 = $("#end1").val();
+      const content2 = $("#content2").val();
+      const end2 = $("#end2").val();
+      const content3 = $("#content3").val();
+      const end3 = $("#end3").val();
+
+      if (content1 != "" && end1 != ""){
+
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+          type: 'horizontalBar',
+          data: {
+            datasets: [
+              {
+                label: `${content1}`,
+                data: [end1],
+                backgroundColor: "rgba(219,39,91,0.5)"
+              },{
+                label: `${content2}`,
+                data: [end2 - end1],
+                backgroundColor: "rgba(130,201,169,0.5)"
+              },{
+                label: `${content3}`,
+                data: [end3 - end2],
+                backgroundColor: "rgba(4,55,169,0.5)"
+              }
+            ]
+          },
+          options: {
+            title: {
+              display: true,
+            },
+            scales: {
+              xAxes: [{
+                stacked: true,
+                ticks: {
+                  suggestedMax: 26,
+                  min: start,
+                  stepSize: 1,
+                  callback: function(value, index, values){
+                    return  value +  '時'
+                  }
+                }
+              }],
+              yAxes: [{
+                stacked: true
+              }]
+            },
+          }
+        });
+
+
+      } else {
+        console.log("入力がおかしいよ");
+      }
+    });
+
+    $("#plus-button").on("click", function () {
+      if($('#form-end2').css('display') === 'none'){
+        $('#form-end2').css('display', 'block');
+      } else if($('#form-end3').css('display') === 'none'){
+        $('#form-end3').css('display', 'block');
+        $('#close-end2').css('display', 'none');
+      }
+    });
+
+    $("#close-end2").on("click", function () {
+      $('#form-end2').css('display', 'none');
+    });
+    $("#close-end3").on("click", function () {
+      $('#form-end3').css('display', 'none');
+      $('#close-end2').css('display', 'block');
+    });
+
+    $("#save-button").on("click", function () {
+
+      const start = $("#start").val();
+      const content1 = $("#content1").val();
+      const end1 = $("#end1").val();
+      const content2 = $("#content2").val();
+      const end2 = $("#end2").val();
+      const content3 = $("#content3").val();
+      const end3 = $("#end3").val();
+
+      if (content1 != "" && end1 != ""){
+
+        // 生成する文字列の長さ
+        var l = 8;
+        // 生成する文字列に含める文字セット
+        var c = "abcdefghijklmnopqrstuvwxyz0123456789";
+        var cl = c.length;
+        var hash = "";
+        for(var i=0; i<l; i++){
+          hash += c[Math.floor(Math.random()*cl)];
+        }
+
+
+        // あとで上と共通化する
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+          type: 'horizontalBar',
+          data: {
+            datasets: [
+              {
+                label: `${content1}`,
+                data: [end1],
+                backgroundColor: "rgba(219,39,91,0.5)"
+              },{
+                label: `${content2}`,
+                data: [end2 - end1],
+                backgroundColor: "rgba(130,201,169,0.5)"
+              },{
+                label: `${content3}`,
+                data: [end3 - end2],
+                backgroundColor: "rgba(4,55,169,0.5)"
+              }
+            ]
+          },
+          options: {
+            title: {
+              display: true,
+            },
+            scales: {
+              xAxes: [{
+                stacked: true,
+                ticks: {
+                  suggestedMax: 26,
+                  min: start,
+                  stepSize: 1,
+                  callback: function(value, index, values){
+                    return  value +  '時'
+                  }
+                }
+              }],
+              yAxes: [{
+                stacked: true
+              }]
+            },
+          }
+        });
+
+      } else {
+        console.log("入力がおかしいよ");
+      }
+
+      var imgData = myChart.toBase64Image();
+
+      // 処理前に Loading 画像を表示
+      dispLoading('BigTweet準備中...画像を作ってるよ！');
+
+      $.ajax({
+        url: '/make',
+        type: 'POST',
+        dataType: 'json',
+        async: true,
+        data: {imgData: imgData, hash: hash},
+      }).done(function(data){
+        removeLoading();
+        swal({
+          type: 'success',
+          // title: 'Let\'s BigTweet!',
+          text: '画像完成！\n↓Let\'s BigTweet!↓',
+          imageUrl: `https://s3-ap-northeast-1.amazonaws.com/myday-production/images/${hash}.png`,
+          imageWidth: 315,
+          imageAlt: 'Custom image',
+          showConfirmButton: false,
+          showCloseButton: true,
+          footer: `<a href=https://twitter.com/share?text=%23BigTweet&url=https://myday.herokuapp.com?h=${hash} class=share_btn2>Twitterシェア</a>`,
+        })
+      });
+    });
+  });
+
+/* ------------------------------
+ Loading イメージ表示関数
+ 引数： msg 画面に表示する文言
+ ------------------------------ */
+function dispLoading(msg){
+  // 引数なし（メッセージなし）を許容
+  if( msg == undefined ){
+    msg = "";
+  }
+  // 画面表示メッセージ
+  var dispMsg = "<div class='loadingMsg'>" + msg + "</div>";
+  // ローディング画像が表示されていない場合のみ出力
+  if($("#loading").length == 0){
+    $("body").append("<div id='loading'>" + dispMsg + "</div>");
+  }
+}
+
+/* ------------------------------
+ Loading イメージ削除関数
+ ------------------------------ */
+function removeLoading(){
+  $("#loading").remove();
+}
+
+</script>
