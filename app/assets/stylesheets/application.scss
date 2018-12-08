@@ -2,6 +2,29 @@
 @import "bootstrap";
 @import "font-awesome";
 
+body {
+  background-color: #FFFFFF;
+}
+
+.header {
+  background-color: #3A3A3A;
+  color: #FFFFFF;
+  font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
+  padding: .7rem
+}
+
+footer {
+  padding: 25px 0;
+  margin: 25px 0 0 0;
+  text-align: center;
+  background-color: #DBD4D1;
+}
+
+@font-face {
+  font-family: 'fude';
+  src: font-url('fude.otf')
+}
+
 #loading {
   display: table;
   width: 100%;
@@ -32,3 +55,19 @@
 #plus-button {
   text-align: center;
 }
+
+// 使い方の説明など
+#accordion dt {
+  border-bottom: solid 1px white;
+  background-color: #F3F3F3;
+  cursor: pointer;
+  padding: 10px;
+  font-weight: bold;
+}
+
+#accordion dd {
+  border: solid 1px #F3F3F3;
+  margin: 0px;
+  padding: 10px;
+}
+// 使い方の説明などここまで
