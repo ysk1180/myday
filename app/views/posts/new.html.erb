@@ -63,13 +63,22 @@
     </div>
 
     <div id="plus-button"><i class="fa fa-plus-circle fa-2x fa-fw plus-mark"></i></div>
-
-    <canvas id="myChart"></canvas>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-
   <% end %>
 
-  <button id="save-button" class="square_btn"><i class="fa fa-check"></i> 画像を確認する</button>
+  <div id='example'>
+    <p>こんなツイートが簡単にできるよ！</p>
+    ここに画像
+  </div>
+
+  <canvas id="myChart"></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
+
+  <div id="conf-button">
+    <button id="save-button" class="square_btn"><i class="fa fa-check fa-fw"></i>画像を確認する</button>
+    <br>
+    <small class="text-muted">画像確認後にツイートするかを決めます</small></p>
+  </div>
 
   <script>
 
@@ -127,6 +136,9 @@
         const end3 = $("#end3").val();
 
         if (start != "" && content1 != "" && end1 != ""){
+          $('#example').css('display','none');
+          $('#conf-button').css('display','block');
+
           var dataset = [{
             label: content1,
             data: [end1],
@@ -156,7 +168,8 @@
             options: {
               title: {
                 display: true,
-                text: title
+                text: title,
+                fontSize: 21
               },
               scales: {
                 xAxes: [{

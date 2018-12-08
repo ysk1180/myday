@@ -71,3 +71,33 @@ footer {
   padding: 10px;
 }
 // 使い方の説明などここまで
+
+// 画像確認ボタン
+.square_btn {
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #FFF;
+    background: skyblue;/*色*/
+    // border: solid 1px #0f9ada;/*線色*/
+    border-radius: 4px;
+    // box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    // text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+.square_btn:active {/*押したとき*/
+    border: solid 1px #03A9F4;
+    box-shadow: none;
+    text-shadow: none;
+}
+#conf-button {
+  display: none;
+  text-align: center;
+  padding: 20px;
+}
+// 画像確認ボタンここまで
+
+#example {
+  padding: 20px;
+}
