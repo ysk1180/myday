@@ -14,7 +14,11 @@
 
   <%= form_with(model: @post, local: true, id: 'not_use') do |form| %>
 
-    <div class="form-row" id="form-start">
+    <div class="form-row" id="form-title-start">
+      <div class="form-group col-7">
+        <%= form.text_area :title, id: :title, class:'form-control', rows:"1" %>
+      </div>
+
       <div class="form-group col-3">
         <%= form.select :start, select_time, {}, {class: 'form-control'} %>
       </div>
@@ -71,12 +75,22 @@
 
     $(function(){
 
+      const title_form = $("#title")
+      const start_form = $("#start")
       const content1_form = $("#content1")
       const end1_form = $("#end1")
       const content2_form = $("#content2")
       const end2_form = $("#end2")
       const content3_form = $("#content3")
       const end3_form = $("#end3")
+
+      title_form.keyup(function(){
+        display();
+      });
+
+      start_form.change(function (){
+        display();
+      });
 
       content1_form.keyup(function(){
         display();
@@ -103,6 +117,7 @@
       });
 
       var display = function (){
+        const title = $("#title").val();
         const start = $("#start").val();
         const content1 = $("#content1").val();
         const end1 = $("#end1").val();
@@ -113,20 +128,20 @@
 
         if (start != "" && content1 != "" && end1 != ""){
           var dataset = [{
-            label: `${content1}`,
+            label: content1,
             data: [end1],
             backgroundColor: "rgba(219,39,91,0.5)"
           }]
           if (content2 != "" && end2 != "") {
             dataset.push({
-              label: `${content2}`,
+              label: content2,
               data: [end2 - end1],
               backgroundColor: "rgba(130,201,169,0.5)"
             });
           }
           if (content3 != "" && end3 != "") {
             dataset.push({
-              label: `${content3}`,
+              label: content3,
               data: [end3 - end2],
               backgroundColor: "rgba(11,88,169,0.5)"
             });
@@ -141,6 +156,7 @@
             options: {
               title: {
                 display: true,
+                text: title
               },
               scales: {
                 xAxes: [{
@@ -162,7 +178,7 @@
           });
           return myChart;
         } else {
-          console.log("入力がおかしいよ");
+          console.log("入力が足りないよ〜");
         }
       }
 
