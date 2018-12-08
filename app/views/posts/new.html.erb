@@ -1,7 +1,9 @@
 <%= form_with(model: @post, local: true, id: 'not_use') do |form| %>
 
-  <div class="form-group">
-    <%= form.select :start, select_time, {}, {class: 'form-control'} %>
+  <div class="form-row" id="form-start">
+    <div class="form-group col-3">
+      <%= form.select :start, select_time, {}, {class: 'form-control'} %>
+    </div>
   </div>
 
   <div class="form-row" id="form-end1">
@@ -24,7 +26,7 @@
     </div>
 
     <div class="form-group col-2">
-      <span id="close-end2">-</span>
+      <span id="close-end2"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
     </div>
   </div>
 
@@ -34,31 +36,61 @@
     </div>
 
     <div class="form-group col-3">
-      <%= form.select :end3, select_time {}, {class: 'form-control'} %>
+      <%= form.select :end3, select_time, {}, {class: 'form-control'} %>
     </div>
 
     <div class="form-group col-2">
-      <span id="close-end3">-</span>
+      <span id="close-end3"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
     </div>
   </div>
 
-  <div id="plus-button" class="square_btn"><i class="fa fa-check"></i>フォームに追加</div>
+  <div id="plus-button"><i class="fa fa-plus-circle fa-2x fa-fw plus-mark"></i></div>
 
-  <div id="reload-button" class="square_btn"><i class="fa fa-check"></i> グラフに反映する</div>
-
-  <p>プレビュー</p>
   <canvas id="myChart"></canvas>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-
 
 <% end %>
 
 <button id="save-button" class="square_btn"><i class="fa fa-check"></i> 画像を確認する</button>
 
+<button id="test" class="square_btn"><i class="fa fa-check"></i>テスト用ボタン</button>
+
 <script>
 
   $(function(){
-    $("#reload-button").on("click", function () {
+
+      const content1_form = $("#content1")
+      const end1_form = $("#end1")
+      const content2_form = $("#content2")
+      const end2_form = $("#end2")
+      const content3_form = $("#content3")
+      const end3_form = $("#end3")
+
+    content1_form.keyup(function(){
+      display();
+    });
+
+    end1_form.change(function (){
+      display();
+    });
+
+    content2_form.keyup(function(){
+      display();
+    });
+
+    end2_form.change(function (){
+      display();
+    });
+
+    content3_form.keyup(function(){
+      display();
+    });
+
+    end3_form.change(function (){
+      display();
+    });
+
+  var display = function (){
       const start = $("#start").val();
       const content1 = $("#content1").val();
       const end1 = $("#end1").val();
@@ -68,26 +100,31 @@
       const end3 = $("#end3").val();
 
       if (content1 != "" && end1 != ""){
+        var dataset = [{
+          label: `${content1}`,
+          data: [end1],
+          backgroundColor: "rgba(219,39,91,0.5)"
+        }]
+        if (content2 != "" && end2 != "") {
+          dataset.push({
+            label: `${content2}`,
+            data: [end2 - end1],
+            backgroundColor: "rgba(130,201,169,0.5)"
+          });
+        }
+        if (content3 != "" && end3 != "") {
+          dataset.push({
+            label: `${content3}`,
+            data: [end3 - end2],
+            backgroundColor: "rgba(11,88,169,0.5)"
+          });
+        }
 
         var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
           type: 'horizontalBar',
           data: {
-            datasets: [
-              {
-                label: `${content1}`,
-                data: [end1],
-                backgroundColor: "rgba(219,39,91,0.5)"
-              },{
-                label: `${content2}`,
-                data: [end2 - end1],
-                backgroundColor: "rgba(130,201,169,0.5)"
-              },{
-                label: `${content3}`,
-                data: [end3 - end2],
-                backgroundColor: "rgba(4,55,169,0.5)"
-              }
-            ]
+            datasets: dataset
           },
           options: {
             title: {
@@ -111,41 +148,38 @@
             },
           }
         });
-
-
+        return myChart;
       } else {
         console.log("入力がおかしいよ");
       }
-    });
+    }
 
     $("#plus-button").on("click", function () {
       if($('#form-end2').css('display') === 'none'){
-        $('#form-end2').css('display', 'block');
+        $('#form-end2').css('display', '');
       } else if($('#form-end3').css('display') === 'none'){
-        $('#form-end3').css('display', 'block');
+        $('#form-end3').css('display', '');
         $('#close-end2').css('display', 'none');
+        $('#plus-button').css('display', 'none');
       }
     });
 
     $("#close-end2").on("click", function () {
       $('#form-end2').css('display', 'none');
+      $("#content2").val("")
+      $("#end2").val("")
+      display();
     });
     $("#close-end3").on("click", function () {
       $('#form-end3').css('display', 'none');
-      $('#close-end2').css('display', 'block');
+      $("#content3").val("")
+      $("#end3").val("")
+      $('#close-end2').css('display', '');
+      $('#plus-button').css('display', '');
+      display();
     });
 
     $("#save-button").on("click", function () {
-
-      const start = $("#start").val();
-      const content1 = $("#content1").val();
-      const end1 = $("#end1").val();
-      const content2 = $("#content2").val();
-      const end2 = $("#end2").val();
-      const content3 = $("#content3").val();
-      const end3 = $("#end3").val();
-
-      if (content1 != "" && end1 != ""){
 
         // 生成する文字列の長さ
         var l = 8;
@@ -157,54 +191,7 @@
           hash += c[Math.floor(Math.random()*cl)];
         }
 
-
-        // あとで上と共通化する
-        var ctx = document.getElementById("myChart");
-        var myChart = new Chart(ctx, {
-          type: 'horizontalBar',
-          data: {
-            datasets: [
-              {
-                label: `${content1}`,
-                data: [end1],
-                backgroundColor: "rgba(219,39,91,0.5)"
-              },{
-                label: `${content2}`,
-                data: [end2 - end1],
-                backgroundColor: "rgba(130,201,169,0.5)"
-              },{
-                label: `${content3}`,
-                data: [end3 - end2],
-                backgroundColor: "rgba(4,55,169,0.5)"
-              }
-            ]
-          },
-          options: {
-            title: {
-              display: true,
-            },
-            scales: {
-              xAxes: [{
-                stacked: true,
-                ticks: {
-                  suggestedMax: 26,
-                  min: start,
-                  stepSize: 1,
-                  callback: function(value, index, values){
-                    return  value +  '時'
-                  }
-                }
-              }],
-              yAxes: [{
-                stacked: true
-              }]
-            },
-          }
-        });
-
-      } else {
-        console.log("入力がおかしいよ");
-      }
+      var myChart = display();
 
       var imgData = myChart.toBase64Image();
 
@@ -232,6 +219,43 @@
         })
       });
     });
+
+    // //todo 直す！
+    // // 前の時間以降しか選択肢に出さなくする制御
+    // $('#start').change(function() {
+    //   const text = $('option:selected').text();
+    //
+    //   // 消した選択肢を戻すためだが、現状一回全部消えて、もう一度選択肢直すと再度時間が出てくる未完全な仕様になってる
+    //   $("#start option").clone().appendTo($("#end1"));
+    //
+    //   $('#end1 option').each( function(){
+    //     console.log($(this).text())
+    //     if($(this).text() == text) {
+    //       $(this).remove();
+    //       return false;
+    //     } else {
+    //       $(this).remove();
+    //     }
+    //   });
+    // });
+    //
+    // $('#end1').change(function() {
+    //   const text = $('option:selected').text();
+    //
+    //   // 消した選択肢を戻すためだが、現状一回全部消えて、もう一度選択肢直すと再度時間が出てくる未完全な仕様になってる
+    //   $("#start option").clone().appendTo($("#end2"));
+    //
+    //   $('#end2 option').each( function(){
+    //
+    //     if($(this).text() == text) {
+    //       $(this).remove();
+    //       return false;
+    //     } else {
+    //       $(this).remove();
+    //     }
+    //   });
+    // });
+
   });
 
 /* ------------------------------
