@@ -226,6 +226,8 @@
       });
 
       $("#save-button").on("click", function () {
+        // 処理前に Loading 画像を表示
+        dispLoading('画像を作ってるよ！');
 
         // 生成する文字列の長さ
         var l = 8;
@@ -236,35 +238,32 @@
         for(var i=0; i<l; i++){
           hash += c[Math.floor(Math.random()*cl)];
         }
-        var myChart = display();
-        // 処理前に Loading 画像を表示
-        dispLoading('BigTweet準備中...画像を作ってるよ！');
 
-        // canvasに画像が描かれるのをsetTimeoutで待っている(1000m秒としているのは適当)
-        setTimeout(function(){
-          var imgData = myChart.toBase64Image();
+        var myChart = document.getElementById("myChart");
 
-          $.ajax({
-            url: '/make',
-            type: 'POST',
-            dataType: 'json',
-            async: true,
-            data: {imgData: imgData, hash: hash},
-          }).done(function(data){
-            removeLoading();
-            swal({
-              type: 'success',
-              // title: 'Let\'s BigTweet!',
-              text: '画像完成！\n↓Let\'s BigTweet!↓',
-              imageUrl: `https://s3-ap-northeast-1.amazonaws.com/myday-production/images/${hash}.png`,
-              imageWidth: 315,
-              imageAlt: 'Custom image',
-              showConfirmButton: false,
-              showCloseButton: true,
-              footer: `<a href=https://twitter.com/share?text=%23BigTweet&url=https://myday.herokuapp.com?h=${hash} class=share_btn2>Twitterシェア</a>`,
-            })
-          });
-        },1000);
+        // Base64へ変換
+        var imgData = myChart.toDataURL();
+
+        $.ajax({
+          url: '/make',
+          type: 'POST',
+          dataType: 'json',
+          async: true,
+          data: {imgData: imgData, hash: hash},
+        }).done(function(data){
+          removeLoading();
+          swal({
+            type: 'success',
+            // title: 'Let\'s BigTweet!',
+            text: '画像完成！\n↓Let\'s BigTweet!↓',
+            imageUrl: `https://s3-ap-northeast-1.amazonaws.com/myday-production/images/${hash}.png`,
+            imageWidth: 315,
+            imageAlt: 'Custom image',
+            showConfirmButton: false,
+            showCloseButton: true,
+            footer: `<a href=https://twitter.com/share?text=%23BigTweet&url=https://myday.herokuapp.com?h=${hash} class=share_btn2>Twitterシェア</a>`,
+          })
+        });
       });
 
       // //todo 直す！
