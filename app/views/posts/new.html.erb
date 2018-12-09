@@ -165,7 +165,6 @@
           var ctx = document.getElementById("myChart");
           var myChart = new Chart(ctx, {
             type: 'horizontalBar',
-            borderWidth: 3,
             data: {
               datasets: dataset
             },
@@ -174,7 +173,8 @@
               title: {
                 display: true,
                 text: title,
-                fontSize: 18
+                fontSize: 18,
+                padding: 2
               },
               scales: {
                 xAxes: [{
@@ -183,12 +183,14 @@
                     // suggestedMax: 26,
                     min: start,
                     stepSize: 1,
+                    fontSize: 9,
                     callback: function(value, index, values){
                       return  value +  '時'
                     }
                   }
                 }],
                 yAxes: [{
+                  barThickness: 20,
                   stacked: true
                 }]
               },
