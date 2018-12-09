@@ -16,49 +16,73 @@
 
     <div class="form-row" id="form-title-start">
       <div class="form-group col-7">
+        <small class="text-muted">タイトル</small>
         <%= form.text_area :title, id: :title, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-3">
+        <small class="text-muted">開始時刻</small>
         <%= form.select :start, select_time, {}, {class: 'form-control'} %>
       </div>
     </div>
 
     <div class="form-row" id="form-end1">
       <div class="form-group col-7">
+        <small class="text-muted">やったこと①</small>
         <%= form.text_area :content1, id: :content1, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-3">
+        <small class="text-muted">終了時刻</small>
         <%= form.select :end1, select_time, {}, {class: 'form-control'} %>
       </div>
     </div>
 
     <div class="form-row" id="form-end2" style="display: none;">
       <div class="form-group col-7">
+        <small class="text-muted">やったこと②</small>
         <%= form.text_area :content2, id: :content2, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-3">
+        <small class="text-muted">終了時刻</small>
         <%= form.select :end2, select_time, {}, {class: 'form-control'} %>
       </div>
 
-      <div class="form-group col-2">
+      <div class="form-group col-2 minus-area">
         <span id="close-end2"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
       </div>
     </div>
 
     <div class="form-row" id="form-end3" style="display: none;">
       <div class="form-group col-7">
+        <small class="text-muted">やったこと③</small>
         <%= form.text_area :content3, id: :content3, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-3">
+        <small class="text-muted">終了時刻</small>
         <%= form.select :end3, select_time, {}, {class: 'form-control'} %>
       </div>
 
-      <div class="form-group col-2">
+      <div class="form-group col-2 minus-area">
         <span id="close-end3"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+      </div>
+    </div>
+
+    <div class="form-row" id="form-end4" style="display: none;">
+      <div class="form-group col-7">
+        <small class="text-muted">やったこと③</small>
+        <%= form.text_area :content4, id: :content4, class:'form-control', rows:"1" %>
+      </div>
+
+      <div class="form-group col-3">
+        <small class="text-muted">終了時刻</small>
+        <%= form.select :end4, select_time, {}, {class: 'form-control'} %>
+      </div>
+
+      <div class="form-group col-2 minus-area">
+        <span id="close-end4"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
       </div>
     </div>
 
@@ -79,7 +103,7 @@
   <div id="conf-button">
     <button id="save-button" class="square_btn"><i class="fa fa-check fa-fw"></i>画像を確認する</button>
     <br>
-    <small class="text-muted">画像確認後にツイートするかを決めます</small></p>
+    <small class="text-muted">画像確認後にツイートするかを決めます</small>
   </div>
 
   <script>
@@ -94,36 +118,37 @@
       const end2_form = $("#end2")
       const content3_form = $("#content3")
       const end3_form = $("#end3")
+      const content4_form = $("#content4")
+      const end4_form = $("#end4")
 
       title_form.blur(function(){
         display();
       });
-
       start_form.change(function (){
         display();
       });
-
       content1_form.blur(function(){
         display();
       });
-
       end1_form.change(function (){
         display();
       });
-
       content2_form.blur(function(){
         display();
       });
-
       end2_form.change(function (){
         display();
       });
-
       content3_form.blur(function(){
         display();
       });
-
       end3_form.change(function (){
+        display();
+      });
+      content4_form.blur(function(){
+        display();
+      });
+      end4_form.change(function (){
         display();
       });
 
@@ -136,6 +161,8 @@
         var end2 = $("#end2").val();
         var content3 = $("#content3").val();
         var end3 = $("#end3").val();
+        var content4 = $("#content4").val();
+        var end4 = $("#end4").val();
 
         if (start != "" && content1 != "" && end1 != ""){
           $('#example').css('display','none');
@@ -159,6 +186,13 @@
               label: content3,
               data: [end3 - end2],
               backgroundColor: "rgba(11,88,169,0.5)"
+            });
+          }
+          if (content4 != "" && end4 != "") {
+            dataset.push({
+              label: content4,
+              data: [end4 - end3],
+              backgroundColor: "rgba(11,5,169,0.5)"
             });
           }
 
@@ -207,6 +241,9 @@
         } else if($('#form-end3').css('display') === 'none'){
           $('#form-end3').css('display', '');
           $('#close-end2').css('display', 'none');
+        } else if($('#form-end4').css('display') === 'none'){
+          $('#form-end4').css('display', '');
+          $('#close-end3').css('display', 'none');
           $('#plus-button').css('display', 'none');
         }
       });
@@ -222,6 +259,14 @@
         $("#content3").val("")
         $("#end3").val("")
         $('#close-end2').css('display', '');
+        $('#plus-button').css('display', '');
+        display();
+      });
+      $("#close-end4").on("click", function () {
+        $('#form-end4').css('display', 'none');
+        $("#content4").val("")
+        $("#end4").val("")
+        $('#close-end3').css('display', '');
         $('#plus-button').css('display', '');
         display();
       });
