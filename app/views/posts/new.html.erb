@@ -70,7 +70,9 @@
     ここに画像
   </div>
 
-  <canvas id="myChart"></canvas>
+  <div id="chart-container">
+    <canvas id="myChart" width="315" height="166"></canvas>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 
 
@@ -138,6 +140,7 @@
         if (start != "" && content1 != "" && end1 != ""){
           $('#example').css('display','none');
           $('#conf-button').css('display','block');
+          $('#myChart').css('display','inline-block');
 
           var dataset = [{
             label: content1,
@@ -166,10 +169,11 @@
               datasets: dataset
             },
             options: {
+              responsive: false,
               title: {
                 display: true,
                 text: title,
-                fontSize: 21
+                fontSize: 18
               },
               scales: {
                 xAxes: [{
