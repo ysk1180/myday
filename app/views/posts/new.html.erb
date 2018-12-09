@@ -128,14 +128,14 @@
       });
 
       var display = function (){
-        const title = $("#title").val();
-        const start = $("#start").val();
-        const content1 = $("#content1").val();
-        const end1 = $("#end1").val();
-        const content2 = $("#content2").val();
-        const end2 = $("#end2").val();
-        const content3 = $("#content3").val();
-        const end3 = $("#end3").val();
+        var title = $("#title").val();
+        var start = $("#start").val();
+        var content1 = $("#content1").val();
+        var end1 = $("#end1").val();
+        var content2 = $("#content2").val();
+        var end2 = $("#end2").val();
+        var content3 = $("#content3").val();
+        var end3 = $("#end3").val();
 
         if (start != "" && content1 != "" && end1 != ""){
           $('#example').css('display','none');
@@ -194,7 +194,6 @@
               },
             }
           });
-          return myChart;
         } else {
           console.log("入力が足りないよ〜");
         }
