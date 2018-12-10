@@ -72,7 +72,7 @@
 
     <div class="form-row" id="form-end4" style="display: none;">
       <div class="form-group col-7">
-        <small class="text-muted">やったこと③</small>
+        <small class="text-muted">やったこと④</small>
         <%= form.text_area :content4, id: :content4, class:'form-control', rows:"1" %>
       </div>
 
@@ -83,6 +83,102 @@
 
       <div class="form-group col-2 minus-area">
         <span id="close-end4"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+      </div>
+    </div>
+
+    <div class="form-row" id="form-end5" style="display: none;">
+      <div class="form-group col-7">
+        <small class="text-muted">やったこと⑤</small>
+        <%= form.text_area :content5, id: :content5, class:'form-control', rows:"1" %>
+      </div>
+
+      <div class="form-group col-3">
+        <small class="text-muted">終了時刻</small>
+        <%= form.select :end5, select_time, {}, {class: 'form-control'} %>
+      </div>
+
+      <div class="form-group col-2 minus-area">
+        <span id="close-end5"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+      </div>
+    </div>
+
+    <div class="form-row" id="form-end6" style="display: none;">
+      <div class="form-group col-7">
+        <small class="text-muted">やったこと⑥</small>
+        <%= form.text_area :content6, id: :content6, class:'form-control', rows:"1" %>
+      </div>
+
+      <div class="form-group col-3">
+        <small class="text-muted">終了時刻</small>
+        <%= form.select :end6, select_time, {}, {class: 'form-control'} %>
+      </div>
+
+      <div class="form-group col-2 minus-area">
+        <span id="close-end6"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+      </div>
+    </div>
+
+    <div class="form-row" id="form-end7" style="display: none;">
+      <div class="form-group col-7">
+        <small class="text-muted">やったこと⑦</small>
+        <%= form.text_area :content7, id: :content7, class:'form-control', rows:"1" %>
+      </div>
+
+      <div class="form-group col-3">
+        <small class="text-muted">終了時刻</small>
+        <%= form.select :end7, select_time, {}, {class: 'form-control'} %>
+      </div>
+
+      <div class="form-group col-2 minus-area">
+        <span id="close-end7"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+      </div>
+    </div>
+
+    <div class="form-row" id="form-end8" style="display: none;">
+      <div class="form-group col-7">
+        <small class="text-muted">やったこと⑧</small>
+        <%= form.text_area :content8, id: :content8, class:'form-control', rows:"1" %>
+      </div>
+
+      <div class="form-group col-3">
+        <small class="text-muted">終了時刻</small>
+        <%= form.select :end8, select_time, {}, {class: 'form-control'} %>
+      </div>
+
+      <div class="form-group col-2 minus-area">
+        <span id="close-end8"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+      </div>
+    </div>
+
+    <div class="form-row" id="form-end9" style="display: none;">
+      <div class="form-group col-7">
+        <small class="text-muted">やったこと⑨</small>
+        <%= form.text_area :content9, id: :content9, class:'form-control', rows:"1" %>
+      </div>
+
+      <div class="form-group col-3">
+        <small class="text-muted">終了時刻</small>
+        <%= form.select :end9, select_time, {}, {class: 'form-control'} %>
+      </div>
+
+      <div class="form-group col-2 minus-area">
+        <span id="close-end9"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+      </div>
+    </div>
+
+    <div class="form-row" id="form-end10" style="display: none;">
+      <div class="form-group col-7">
+        <small class="text-muted">やったこと⑩</small>
+        <%= form.text_area :content10, id: :content10, class:'form-control', rows:"1" %>
+      </div>
+
+      <div class="form-group col-3">
+        <small class="text-muted">終了時刻</small>
+        <%= form.select :end10, select_time, {}, {class: 'form-control'} %>
+      </div>
+
+      <div class="form-group col-2 minus-area">
+        <span id="close-end10"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
       </div>
     </div>
 
@@ -120,6 +216,18 @@
       const end3_form = $("#end3")
       const content4_form = $("#content4")
       const end4_form = $("#end4")
+      const content5_form = $("#content5")
+      const end5_form = $("#end5")
+      const content6_form = $("#content6")
+      const end6_form = $("#end6")
+      const content7_form = $("#content7")
+      const end7_form = $("#end7")
+      const content8_form = $("#content8")
+      const end8_form = $("#end8")
+      const content9_form = $("#content9")
+      const end9_form = $("#end9")
+      const content10_form = $("#content10")
+      const end10_form = $("#end10")
 
       title_form.blur(function(){
         display();
@@ -151,6 +259,42 @@
       end4_form.change(function (){
         display();
       });
+      content5_form.blur(function(){
+        display();
+      });
+      end5_form.change(function (){
+        display();
+      });
+      content6_form.blur(function(){
+        display();
+      });
+      end6_form.change(function (){
+        display();
+      });
+      content7_form.blur(function(){
+        display();
+      });
+      end7_form.change(function (){
+        display();
+      });
+      content8_form.blur(function(){
+        display();
+      });
+      end8_form.change(function (){
+        display();
+      });
+      content9_form.blur(function(){
+        display();
+      });
+      end9_form.change(function (){
+        display();
+      });
+      content10_form.blur(function(){
+        display();
+      });
+      end10_form.change(function (){
+        display();
+      });
 
       var display = function (){
         var title = $("#title").val();
@@ -163,6 +307,18 @@
         var end3 = $("#end3").val();
         var content4 = $("#content4").val();
         var end4 = $("#end4").val();
+        var content5 = $("#content5").val();
+        var end5 = $("#end5").val();
+        var content6 = $("#content6").val();
+        var end6 = $("#end6").val();
+        var content7 = $("#content7").val();
+        var end7 = $("#end7").val();
+        var content8 = $("#content8").val();
+        var end8 = $("#end8").val();
+        var content9 = $("#content9").val();
+        var end9 = $("#end9").val();
+        var content10 = $("#content10").val();
+        var end10 = $("#end10").val();
 
         if (start != "" && content1 != "" && end1 != ""){
           $('#example').css('display','none');
@@ -195,6 +351,48 @@
               backgroundColor: "rgba(11,5,169,0.5)"
             });
           }
+          if (content5 != "" && end5 != "") {
+            dataset.push({
+              label: content5,
+              data: [end5 - end4],
+              backgroundColor: "rgba(11,5,59,0.5)"
+            });
+          }
+          if (content6 != "" && end6 != "") {
+            dataset.push({
+              label: content6,
+              data: [end6 - end5],
+              backgroundColor: "rgba(1,5,169,0.5)"
+            });
+          }
+          if (content7 != "" && end7 != "") {
+            dataset.push({
+              label: content7,
+              data: [end7 - end6],
+              backgroundColor: "rgba(11,35,169,0.5)"
+            });
+          }
+          if (content8 != "" && end8 != "") {
+            dataset.push({
+              label: content8,
+              data: [end8 - end7],
+              backgroundColor: "rgba(111,5,169,0.5)"
+            });
+          }
+          if (content9 != "" && end9 != "") {
+            dataset.push({
+              label: content9,
+              data: [end9 - end8],
+              backgroundColor: "rgba(11,5,19,0.5)"
+            });
+          }
+          if (content10 != "" && end10 != "") {
+            dataset.push({
+              label: content10,
+              data: [end10 - end9],
+              backgroundColor: "rgba(11,115,169,0.5)"
+            });
+          }
 
           var ctx = document.getElementById("myChart");
           var myChart = new Chart(ctx, {
@@ -217,7 +415,7 @@
                     // suggestedMax: 26,
                     min: start,
                     stepSize: 1,
-                    fontSize: 9,
+                    fontSize: 10,
                     callback: function(value, index, values){
                       return  value +  '時'
                     }
@@ -249,6 +447,24 @@
         } else if($('#form-end4').css('display') === 'none'){
           $('#form-end4').css('display', '');
           $('#close-end3').css('display', 'none');
+        } else if($('#form-end5').css('display') === 'none'){
+          $('#form-end5').css('display', '');
+          $('#close-end4').css('display', 'none');
+        } else if($('#form-end6').css('display') === 'none'){
+          $('#form-end6').css('display', '');
+          $('#close-end5').css('display', 'none');
+        } else if($('#form-end7').css('display') === 'none'){
+          $('#form-end7').css('display', '');
+          $('#close-end6').css('display', 'none');
+        } else if($('#form-end8').css('display') === 'none'){
+          $('#form-end8').css('display', '');
+          $('#close-end7').css('display', 'none');
+        } else if($('#form-end9').css('display') === 'none'){
+          $('#form-end9').css('display', '');
+          $('#close-end8').css('display', 'none');
+        } else if($('#form-end10').css('display') === 'none'){
+          $('#form-end10').css('display', '');
+          $('#close-end9').css('display', 'none');
           $('#plus-button').css('display', 'none');
         }
       });
@@ -272,6 +488,54 @@
         $("#content4").val("")
         $("#end4").val("")
         $('#close-end3').css('display', '');
+        $('#plus-button').css('display', '');
+        display();
+      });
+      $("#close-end5").on("click", function () {
+        $('#form-end5').css('display', 'none');
+        $("#content5").val("")
+        $("#end5").val("")
+        $('#close-end4').css('display', '');
+        $('#plus-button').css('display', '');
+        display();
+      });
+      $("#close-end6").on("click", function () {
+        $('#form-end6').css('display', 'none');
+        $("#content6").val("")
+        $("#end6").val("")
+        $('#close-end5').css('display', '');
+        $('#plus-button').css('display', '');
+        display();
+      });
+      $("#close-end7").on("click", function () {
+        $('#form-end7').css('display', 'none');
+        $("#content7").val("")
+        $("#end7").val("")
+        $('#close-end6').css('display', '');
+        $('#plus-button').css('display', '');
+        display();
+      });
+      $("#close-end8").on("click", function () {
+        $('#form-end8').css('display', 'none');
+        $("#content8").val("")
+        $("#end8").val("")
+        $('#close-end7').css('display', '');
+        $('#plus-button').css('display', '');
+        display();
+      });
+      $("#close-end9").on("click", function () {
+        $('#form-end9').css('display', 'none');
+        $("#content9").val("")
+        $("#end9").val("")
+        $('#close-end8').css('display', '');
+        $('#plus-button').css('display', '');
+        display();
+      });
+      $("#close-end10").on("click", function () {
+        $('#form-end10').css('display', 'none');
+        $("#content10").val("")
+        $("#end10").val("")
+        $('#close-end9').css('display', '');
         $('#plus-button').css('display', '');
         display();
       });
