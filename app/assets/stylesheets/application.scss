@@ -109,3 +109,8 @@ footer {
 #chart-container {
   text-align: center;
 }
+
+// formの縦の間隔が広すぎたので修正
+.form-group {
+  margin-bottom: 3px;
+}
