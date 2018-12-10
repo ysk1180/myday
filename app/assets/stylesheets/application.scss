@@ -3,11 +3,11 @@
 @import "font-awesome";
 
 body {
-  background-color: #FFFFFF;
+  background-color: #E6EFFA;
 }
 
 .header {
-  background-color: #3A3A3A;
+  background-color: #0059C8;
   color: #FFFFFF;
   font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
   padding: .7rem
@@ -54,6 +54,7 @@ footer {
 
 .plus-mark {
   color: skyblue;
+  margin: 5px;
 }
 
 #plus-button {
@@ -63,16 +64,16 @@ footer {
 // 使い方の説明など
 #accordion dt {
   border-bottom: solid 1px white;
-  background-color: #F3F3F3;
+  background-color: #FFFFFF;
   cursor: pointer;
-  padding: 10px;
+  padding: 8px;
   font-weight: bold;
 }
 
 #accordion dd {
   border: solid 1px #F3F3F3;
   margin: 0px;
-  padding: 10px;
+  padding: 8px;
 }
 // 使い方の説明などここまで
 
