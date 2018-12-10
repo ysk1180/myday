@@ -394,6 +394,15 @@
             });
           }
 
+          // 背景色の設定
+          Chart.plugins.register({
+            beforeDraw: function(ch){
+              var ctx = ch.chart.ctx;
+              ctx.fillStyle ="#FFFFFF";
+              ctx.fillRect(0, 0, ch.chart.width, ch.chart.height);
+            }
+          });
+
           var ctx = document.getElementById("myChart");
           var myChart = new Chart(ctx, {
             type: 'horizontalBar',
