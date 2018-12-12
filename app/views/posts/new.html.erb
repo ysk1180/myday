@@ -1,216 +1,201 @@
-<div class="header">
-  <a href="/" style="color: white;">My Day</a>
+<div>
+  <dl id="accordion">
+    <dt><i class="fa fa-clock-o fa-fw"></i>どんなサービス？</dt>
+    <dd>自分の時間を共有できるサービスです。こんなツイートが簡単にできちゃいます。</dd>
+    <dt><i class="fa fa-hand-o-up fa-fw"></i>使い方</dt>
+    <dd>時間・内容入力→画像作成→ツイートできます。</dd>
+  </dl>
 </div>
 
-<div class="container">
-  <div>
-    <dl id="accordion">
-      <dt><i class="fa fa-clock-o fa-fw"></i>どんなサービス？</dt>
-      <dd>自分の時間を共有できるサービスです。こんなツイートが簡単にできちゃいます。</dd>
-      <dt><i class="fa fa-hand-o-up fa-fw"></i>使い方</dt>
-      <dd>時間・内容入力→画像作成→ツイートできます。</dd>
-    </dl>
+<%= form_with(model: @post, local: true, id: 'not_use') do |form| %>
+
+  <div class="form-row" id="form-title-start">
+    <div class="form-group col-7">
+      <small class="text-muted">タイトル</small>
+      <%= form.text_area :title, id: :title, class:'form-control', rows:"1" %>
+    </div>
+
+    <div class="form-group col-3">
+      <small class="text-muted">開始時刻</small>
+      <%= form.select :start, select_time, {}, {class: 'form-control'} %>
+    </div>
   </div>
 
-  <%= form_with(model: @post, local: true, id: 'not_use') do |form| %>
-
-    <div class="form-row" id="form-title-start">
-      <div class="form-group col-7">
-        <small class="text-muted">タイトル</small>
-        <%= form.text_area :title, id: :title, class:'form-control', rows:"1" %>
-      </div>
-
-      <div class="form-group col-3">
-        <small class="text-muted">開始時刻</small>
-        <%= form.select :start, select_time, {}, {class: 'form-control'} %>
-      </div>
+  <div class="form-row" id="form-end1">
+    <div class="form-group col-7">
+      <small class="text-muted">やったこと①</small>
+      <%= form.text_area :content1, id: :content1, class:'form-control', rows:"1" %>
     </div>
 
-    <div class="form-row" id="form-end1">
-      <div class="form-group col-7">
-        <small class="text-muted">やったこと①</small>
-        <%= form.text_area :content1, id: :content1, class:'form-control', rows:"1" %>
-      </div>
-
-      <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end1, select_time, {}, {class: 'form-control'} %>
-      </div>
+    <div class="form-group col-3">
+      <small class="text-muted">終了時刻</small>
+      <%= form.select :end1, select_time, {}, {class: 'form-control'} %>
     </div>
-
-    <div class="form-row" id="form-end2" style="display: none;">
-      <div class="form-group col-7">
-        <small class="text-muted">やったこと②</small>
-        <%= form.text_area :content2, id: :content2, class:'form-control', rows:"1" %>
-      </div>
-
-      <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end2, select_time, {}, {class: 'form-control'} %>
-      </div>
-
-      <div class="form-group col-2 minus-area">
-        <span id="close-end2"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
-      </div>
-    </div>
-
-    <div class="form-row" id="form-end3" style="display: none;">
-      <div class="form-group col-7">
-        <small class="text-muted">やったこと③</small>
-        <%= form.text_area :content3, id: :content3, class:'form-control', rows:"1" %>
-      </div>
-
-      <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end3, select_time, {}, {class: 'form-control'} %>
-      </div>
-
-      <div class="form-group col-2 minus-area">
-        <span id="close-end3"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
-      </div>
-    </div>
-
-    <div class="form-row" id="form-end4" style="display: none;">
-      <div class="form-group col-7">
-        <small class="text-muted">やったこと④</small>
-        <%= form.text_area :content4, id: :content4, class:'form-control', rows:"1" %>
-      </div>
-
-      <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end4, select_time, {}, {class: 'form-control'} %>
-      </div>
-
-      <div class="form-group col-2 minus-area">
-        <span id="close-end4"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
-      </div>
-    </div>
-
-    <div class="form-row" id="form-end5" style="display: none;">
-      <div class="form-group col-7">
-        <small class="text-muted">やったこと⑤</small>
-        <%= form.text_area :content5, id: :content5, class:'form-control', rows:"1" %>
-      </div>
-
-      <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end5, select_time, {}, {class: 'form-control'} %>
-      </div>
-
-      <div class="form-group col-2 minus-area">
-        <span id="close-end5"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
-      </div>
-    </div>
-
-    <div class="form-row" id="form-end6" style="display: none;">
-      <div class="form-group col-7">
-        <small class="text-muted">やったこと⑥</small>
-        <%= form.text_area :content6, id: :content6, class:'form-control', rows:"1" %>
-      </div>
-
-      <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end6, select_time, {}, {class: 'form-control'} %>
-      </div>
-
-      <div class="form-group col-2 minus-area">
-        <span id="close-end6"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
-      </div>
-    </div>
-
-    <div class="form-row" id="form-end7" style="display: none;">
-      <div class="form-group col-7">
-        <small class="text-muted">やったこと⑦</small>
-        <%= form.text_area :content7, id: :content7, class:'form-control', rows:"1" %>
-      </div>
-
-      <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end7, select_time, {}, {class: 'form-control'} %>
-      </div>
-
-      <div class="form-group col-2 minus-area">
-        <span id="close-end7"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
-      </div>
-    </div>
-
-    <div class="form-row" id="form-end8" style="display: none;">
-      <div class="form-group col-7">
-        <small class="text-muted">やったこと⑧</small>
-        <%= form.text_area :content8, id: :content8, class:'form-control', rows:"1" %>
-      </div>
-
-      <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end8, select_time, {}, {class: 'form-control'} %>
-      </div>
-
-      <div class="form-group col-2 minus-area">
-        <span id="close-end8"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
-      </div>
-    </div>
-
-    <div class="form-row" id="form-end9" style="display: none;">
-      <div class="form-group col-7">
-        <small class="text-muted">やったこと⑨</small>
-        <%= form.text_area :content9, id: :content9, class:'form-control', rows:"1" %>
-      </div>
-
-      <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end9, select_time, {}, {class: 'form-control'} %>
-      </div>
-
-      <div class="form-group col-2 minus-area">
-        <span id="close-end9"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
-      </div>
-    </div>
-
-    <div class="form-row" id="form-end10" style="display: none;">
-      <div class="form-group col-7">
-        <small class="text-muted">やったこと⑩</small>
-        <%= form.text_area :content10, id: :content10, class:'form-control', rows:"1" %>
-      </div>
-
-      <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end10, select_time, {}, {class: 'form-control'} %>
-      </div>
-
-      <div class="form-group col-2 minus-area">
-        <span id="close-end10"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
-      </div>
-    </div>
-
-    <div id="plus-button"><i class="fa fa-plus-circle fa-2x fa-fw plus-mark"></i></div>
-  <% end %>
-
-  <div id='example'>
-    <p>こんなツイートが簡単にできるよ！</p>
-    ここに画像
   </div>
 
-  <div id="chart-container">
-    <canvas id="myChart" width="315" height="166"></canvas>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+  <div class="form-row" id="form-end2" style="display: none;">
+    <div class="form-group col-7">
+      <small class="text-muted">やったこと②</small>
+      <%= form.text_area :content2, id: :content2, class:'form-control', rows:"1" %>
+    </div>
 
+    <div class="form-group col-3">
+      <small class="text-muted">終了時刻</small>
+      <%= form.select :end2, select_time, {}, {class: 'form-control'} %>
+    </div>
 
-  <div id="conf-button">
-    <button id="save-button" class="square_btn"><i class="fa fa-check fa-fw"></i>画像を確認する</button>
-    <br>
-    <small class="text-muted">画像確認後にツイートするかを決めます</small>
+    <div class="form-group col-2 minus-area">
+      <span id="close-end2"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+    </div>
   </div>
+
+  <div class="form-row" id="form-end3" style="display: none;">
+    <div class="form-group col-7">
+      <small class="text-muted">やったこと③</small>
+      <%= form.text_area :content3, id: :content3, class:'form-control', rows:"1" %>
+    </div>
+
+    <div class="form-group col-3">
+      <small class="text-muted">終了時刻</small>
+      <%= form.select :end3, select_time, {}, {class: 'form-control'} %>
+    </div>
+
+    <div class="form-group col-2 minus-area">
+      <span id="close-end3"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+    </div>
+  </div>
+
+  <div class="form-row" id="form-end4" style="display: none;">
+    <div class="form-group col-7">
+      <small class="text-muted">やったこと④</small>
+      <%= form.text_area :content4, id: :content4, class:'form-control', rows:"1" %>
+    </div>
+
+    <div class="form-group col-3">
+      <small class="text-muted">終了時刻</small>
+      <%= form.select :end4, select_time, {}, {class: 'form-control'} %>
+    </div>
+
+    <div class="form-group col-2 minus-area">
+      <span id="close-end4"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+    </div>
+  </div>
+
+  <div class="form-row" id="form-end5" style="display: none;">
+    <div class="form-group col-7">
+      <small class="text-muted">やったこと⑤</small>
+      <%= form.text_area :content5, id: :content5, class:'form-control', rows:"1" %>
+    </div>
+
+    <div class="form-group col-3">
+      <small class="text-muted">終了時刻</small>
+      <%= form.select :end5, select_time, {}, {class: 'form-control'} %>
+    </div>
+
+    <div class="form-group col-2 minus-area">
+      <span id="close-end5"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+    </div>
+  </div>
+
+  <div class="form-row" id="form-end6" style="display: none;">
+    <div class="form-group col-7">
+      <small class="text-muted">やったこと⑥</small>
+      <%= form.text_area :content6, id: :content6, class:'form-control', rows:"1" %>
+    </div>
+
+    <div class="form-group col-3">
+      <small class="text-muted">終了時刻</small>
+      <%= form.select :end6, select_time, {}, {class: 'form-control'} %>
+    </div>
+
+    <div class="form-group col-2 minus-area">
+      <span id="close-end6"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+    </div>
+  </div>
+
+  <div class="form-row" id="form-end7" style="display: none;">
+    <div class="form-group col-7">
+      <small class="text-muted">やったこと⑦</small>
+      <%= form.text_area :content7, id: :content7, class:'form-control', rows:"1" %>
+    </div>
+
+    <div class="form-group col-3">
+      <small class="text-muted">終了時刻</small>
+      <%= form.select :end7, select_time, {}, {class: 'form-control'} %>
+    </div>
+
+    <div class="form-group col-2 minus-area">
+      <span id="close-end7"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+    </div>
+  </div>
+
+  <div class="form-row" id="form-end8" style="display: none;">
+    <div class="form-group col-7">
+      <small class="text-muted">やったこと⑧</small>
+      <%= form.text_area :content8, id: :content8, class:'form-control', rows:"1" %>
+    </div>
+
+    <div class="form-group col-3">
+      <small class="text-muted">終了時刻</small>
+      <%= form.select :end8, select_time, {}, {class: 'form-control'} %>
+    </div>
+
+    <div class="form-group col-2 minus-area">
+      <span id="close-end8"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+    </div>
+  </div>
+
+  <div class="form-row" id="form-end9" style="display: none;">
+    <div class="form-group col-7">
+      <small class="text-muted">やったこと⑨</small>
+      <%= form.text_area :content9, id: :content9, class:'form-control', rows:"1" %>
+    </div>
+
+    <div class="form-group col-3">
+      <small class="text-muted">終了時刻</small>
+      <%= form.select :end9, select_time, {}, {class: 'form-control'} %>
+    </div>
+
+    <div class="form-group col-2 minus-area">
+      <span id="close-end9"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+    </div>
+  </div>
+
+  <div class="form-row" id="form-end10" style="display: none;">
+    <div class="form-group col-7">
+      <small class="text-muted">やったこと⑩</small>
+      <%= form.text_area :content10, id: :content10, class:'form-control', rows:"1" %>
+    </div>
+
+    <div class="form-group col-3">
+      <small class="text-muted">終了時刻</small>
+      <%= form.select :end10, select_time, {}, {class: 'form-control'} %>
+    </div>
+
+    <div class="form-group col-2 minus-area">
+      <span id="close-end10"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+    </div>
+  </div>
+
+  <div id="plus-button"><i class="fa fa-plus-circle fa-2x fa-fw plus-mark"></i></div>
+<% end %>
+
+<div id='example'>
+  <p>こんなツイートが簡単にできるよ！</p>
+  ここに画像
 </div>
 
-<footer>
-  <div>
-    <%= link_to '利用規約', terms_path %> / <%= link_to 'プライバシーポリシー', privacy_path %>
-  </div>
-  <div id="account">
-    <a href="https://twitter.com/ysk_pro" target="_blank">開発者Twitterアカウント</a>
-  </div>
-</footer>
+<div id="chart-container">
+  <canvas id="myChart" width="315" height="166"></canvas>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
+
+<div id="conf-button">
+  <button id="save-button" class="square_btn"><i class="fa fa-check fa-fw"></i>画像を確認する</button>
+  <br>
+  <small class="text-muted">画像確認後にツイートするかを決めます</small>
+</div>
 
 <script>
 

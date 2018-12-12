@@ -18,6 +18,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="header">
+      <a href="/" style="color: white;">My Day</a>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <footer>
+      <div>
+        <%= link_to '利用規約', terms_path %> / <%= link_to 'プライバシーポリシー', privacy_path %>
+      </div>
+      <div id="account">
+        <a href="https://twitter.com/ysk_pro" target="_blank">開発者Twitterアカウント</a>
+      </div>
+    </footer>
   </body>
 </html>
