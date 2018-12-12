@@ -546,7 +546,9 @@
 
     $("#save-button").on("click", function () {
       // 処理前に Loading 画像を表示
-      dispLoading('画像を作ってるよ！');
+      var data = ['大大吉','大吉','中吉','小吉','凶（ごめんね）'];
+      var word = data[Math.floor(Math.random() * data.length)];
+      dispLoading(`画像作成中...今日の運勢は...${word}`);
 
       // 生成する文字列の長さ
       var l = 8;
