@@ -574,13 +574,14 @@
         swal({
           type: 'success',
           // title: 'Let\'s BigTweet!',
-          text: '画像完成！\n↓Let\'s BigTweet!↓',
+          // text: '画像完成！',
           imageUrl: `https://s3-ap-northeast-1.amazonaws.com/myday-production/images/${hash}.png`,
           imageWidth: 315,
           imageAlt: 'Custom image',
           showConfirmButton: false,
           showCloseButton: true,
-          footer: `<a href=https://twitter.com/share?text=%23BigTweet&url=https://myday.herokuapp.com?h=${hash} class=share_btn2>Twitterシェア</a>`,
+          background: '#E6EFFA',
+          footer: `<a href=https://twitter.com/share?text=%23myday&url=https://myday.herokuapp.com?h=${hash} class=square_btn><i class="fa fa-twitter fa-fw"></i>Twitterシェア</a>`,
         })
       });
     });
