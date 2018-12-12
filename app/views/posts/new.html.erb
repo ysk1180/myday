@@ -1,6 +1,7 @@
 <div class="header">
   <a href="/" style="color: white;">My Day</a>
 </div>
+
 <div class="container">
   <div>
     <dl id="accordion">
@@ -200,432 +201,442 @@
     <br>
     <small class="text-muted">画像確認後にツイートするかを決めます</small>
   </div>
+</div>
 
-  <script>
+<footer>
+  <div>
+    <%= link_to '利用規約', terms_path %> / <%= link_to 'プライバシーポリシー', privacy_path %>
+  </div>
+  <div id="account">
+    <a href="https://twitter.com/ysk_pro" target="_blank">開発者Twitterアカウント</a>
+  </div>
+</footer>
 
-    $(function(){
+<script>
 
-      const title_form = $("#title")
-      const start_form = $("#start")
-      const content1_form = $("#content1")
-      const end1_form = $("#end1")
-      const content2_form = $("#content2")
-      const end2_form = $("#end2")
-      const content3_form = $("#content3")
-      const end3_form = $("#end3")
-      const content4_form = $("#content4")
-      const end4_form = $("#end4")
-      const content5_form = $("#content5")
-      const end5_form = $("#end5")
-      const content6_form = $("#content6")
-      const end6_form = $("#end6")
-      const content7_form = $("#content7")
-      const end7_form = $("#end7")
-      const content8_form = $("#content8")
-      const end8_form = $("#end8")
-      const content9_form = $("#content9")
-      const end9_form = $("#end9")
-      const content10_form = $("#content10")
-      const end10_form = $("#end10")
+  $(function(){
 
-      title_form.blur(function(){
-        display();
-      });
-      start_form.change(function (){
-        display();
-      });
-      content1_form.blur(function(){
-        display();
-      });
-      end1_form.change(function (){
-        display();
-      });
-      content2_form.blur(function(){
-        display();
-      });
-      end2_form.change(function (){
-        display();
-      });
-      content3_form.blur(function(){
-        display();
-      });
-      end3_form.change(function (){
-        display();
-      });
-      content4_form.blur(function(){
-        display();
-      });
-      end4_form.change(function (){
-        display();
-      });
-      content5_form.blur(function(){
-        display();
-      });
-      end5_form.change(function (){
-        display();
-      });
-      content6_form.blur(function(){
-        display();
-      });
-      end6_form.change(function (){
-        display();
-      });
-      content7_form.blur(function(){
-        display();
-      });
-      end7_form.change(function (){
-        display();
-      });
-      content8_form.blur(function(){
-        display();
-      });
-      end8_form.change(function (){
-        display();
-      });
-      content9_form.blur(function(){
-        display();
-      });
-      end9_form.change(function (){
-        display();
-      });
-      content10_form.blur(function(){
-        display();
-      });
-      end10_form.change(function (){
-        display();
-      });
+    const title_form = $("#title")
+    const start_form = $("#start")
+    const content1_form = $("#content1")
+    const end1_form = $("#end1")
+    const content2_form = $("#content2")
+    const end2_form = $("#end2")
+    const content3_form = $("#content3")
+    const end3_form = $("#end3")
+    const content4_form = $("#content4")
+    const end4_form = $("#end4")
+    const content5_form = $("#content5")
+    const end5_form = $("#end5")
+    const content6_form = $("#content6")
+    const end6_form = $("#end6")
+    const content7_form = $("#content7")
+    const end7_form = $("#end7")
+    const content8_form = $("#content8")
+    const end8_form = $("#end8")
+    const content9_form = $("#content9")
+    const end9_form = $("#end9")
+    const content10_form = $("#content10")
+    const end10_form = $("#end10")
 
-      var display = function (){
-        var title = $("#title").val();
-        var start = $("#start").val();
-        var content1 = $("#content1").val();
-        var end1 = $("#end1").val();
-        var content2 = $("#content2").val();
-        var end2 = $("#end2").val();
-        var content3 = $("#content3").val();
-        var end3 = $("#end3").val();
-        var content4 = $("#content4").val();
-        var end4 = $("#end4").val();
-        var content5 = $("#content5").val();
-        var end5 = $("#end5").val();
-        var content6 = $("#content6").val();
-        var end6 = $("#end6").val();
-        var content7 = $("#content7").val();
-        var end7 = $("#end7").val();
-        var content8 = $("#content8").val();
-        var end8 = $("#end8").val();
-        var content9 = $("#content9").val();
-        var end9 = $("#end9").val();
-        var content10 = $("#content10").val();
-        var end10 = $("#end10").val();
+    title_form.blur(function(){
+      display();
+    });
+    start_form.change(function (){
+      display();
+    });
+    content1_form.blur(function(){
+      display();
+    });
+    end1_form.change(function (){
+      display();
+    });
+    content2_form.blur(function(){
+      display();
+    });
+    end2_form.change(function (){
+      display();
+    });
+    content3_form.blur(function(){
+      display();
+    });
+    end3_form.change(function (){
+      display();
+    });
+    content4_form.blur(function(){
+      display();
+    });
+    end4_form.change(function (){
+      display();
+    });
+    content5_form.blur(function(){
+      display();
+    });
+    end5_form.change(function (){
+      display();
+    });
+    content6_form.blur(function(){
+      display();
+    });
+    end6_form.change(function (){
+      display();
+    });
+    content7_form.blur(function(){
+      display();
+    });
+    end7_form.change(function (){
+      display();
+    });
+    content8_form.blur(function(){
+      display();
+    });
+    end8_form.change(function (){
+      display();
+    });
+    content9_form.blur(function(){
+      display();
+    });
+    end9_form.change(function (){
+      display();
+    });
+    content10_form.blur(function(){
+      display();
+    });
+    end10_form.change(function (){
+      display();
+    });
 
-        if (start != "" && content1 != "" && end1 != ""){
-          $('#example').css('display','none');
-          $('#conf-button').css('display','block');
-          $('#myChart').css('display','inline-block');
+    var display = function (){
+      var title = $("#title").val();
+      var start = $("#start").val();
+      var content1 = $("#content1").val();
+      var end1 = $("#end1").val();
+      var content2 = $("#content2").val();
+      var end2 = $("#end2").val();
+      var content3 = $("#content3").val();
+      var end3 = $("#end3").val();
+      var content4 = $("#content4").val();
+      var end4 = $("#end4").val();
+      var content5 = $("#content5").val();
+      var end5 = $("#end5").val();
+      var content6 = $("#content6").val();
+      var end6 = $("#end6").val();
+      var content7 = $("#content7").val();
+      var end7 = $("#end7").val();
+      var content8 = $("#content8").val();
+      var end8 = $("#end8").val();
+      var content9 = $("#content9").val();
+      var end9 = $("#end9").val();
+      var content10 = $("#content10").val();
+      var end10 = $("#end10").val();
 
-          var dataset = [{
-            label: content1,
-            data: [end1],
-            backgroundColor: "rgba(219,39,91,0.5)"
-          }]
-          if (content2 != "" && end2 != "") {
-            dataset.push({
-              label: content2,
-              data: [end2 - end1],
-              backgroundColor: "rgba(130,201,169,0.5)"
-            });
-          }
-          if (content3 != "" && end3 != "") {
-            dataset.push({
-              label: content3,
-              data: [end3 - end2],
-              backgroundColor: "rgba(11,88,169,0.5)"
-            });
-          }
-          if (content4 != "" && end4 != "") {
-            dataset.push({
-              label: content4,
-              data: [end4 - end3],
-              backgroundColor: "rgba(11,5,169,0.5)"
-            });
-          }
-          if (content5 != "" && end5 != "") {
-            dataset.push({
-              label: content5,
-              data: [end5 - end4],
-              backgroundColor: "rgba(11,5,59,0.5)"
-            });
-          }
-          if (content6 != "" && end6 != "") {
-            dataset.push({
-              label: content6,
-              data: [end6 - end5],
-              backgroundColor: "rgba(1,5,169,0.5)"
-            });
-          }
-          if (content7 != "" && end7 != "") {
-            dataset.push({
-              label: content7,
-              data: [end7 - end6],
-              backgroundColor: "rgba(11,35,169,0.5)"
-            });
-          }
-          if (content8 != "" && end8 != "") {
-            dataset.push({
-              label: content8,
-              data: [end8 - end7],
-              backgroundColor: "rgba(111,5,169,0.5)"
-            });
-          }
-          if (content9 != "" && end9 != "") {
-            dataset.push({
-              label: content9,
-              data: [end9 - end8],
-              backgroundColor: "rgba(11,5,19,0.5)"
-            });
-          }
-          if (content10 != "" && end10 != "") {
-            dataset.push({
-              label: content10,
-              data: [end10 - end9],
-              backgroundColor: "rgba(11,115,169,0.5)"
-            });
-          }
+      if (start != "" && content1 != "" && end1 != ""){
+        $('#example').css('display','none');
+        $('#conf-button').css('display','block');
+        $('#myChart').css('display','inline-block');
 
-          // 背景色の設定
-          Chart.plugins.register({
-            beforeDraw: function(ch){
-              var ctx = ch.chart.ctx;
-              ctx.fillStyle ="#FFFFFF";
-              ctx.fillRect(0, 0, ch.chart.width, ch.chart.height);
-            }
+        var dataset = [{
+          label: content1,
+          data: [end1],
+          backgroundColor: "rgba(219,39,91,0.5)"
+        }]
+        if (content2 != "" && end2 != "") {
+          dataset.push({
+            label: content2,
+            data: [end2 - end1],
+            backgroundColor: "rgba(130,201,169,0.5)"
           });
-
-          var ctx = document.getElementById("myChart");
-          var myChart = new Chart(ctx, {
-            type: 'horizontalBar',
-            data: {
-              datasets: dataset
-            },
-            options: {
-              responsive: false,
-              title: {
-                display: true,
-                text: title,
-                fontSize: 18,
-                padding: 2
-              },
-              scales: {
-                xAxes: [{
-                  stacked: true,
-                  ticks: {
-                    // suggestedMax: 26,
-                    min: start,
-                    stepSize: 1,
-                    fontSize: 10,
-                    callback: function(value, index, values){
-                      return  value +  '時'
-                    }
-                  }
-                }],
-                yAxes: [{
-                  barThickness: 20,
-                  stacked: true
-                }]
-              },
-            }
-          });
-
-          var canvas = document.getElementById('myChart');
-          canvas.width = 315;
-          canvas.height = 166;
-
-        } else {
-          console.log("入力が足りないよ〜");
         }
+        if (content3 != "" && end3 != "") {
+          dataset.push({
+            label: content3,
+            data: [end3 - end2],
+            backgroundColor: "rgba(11,88,169,0.5)"
+          });
+        }
+        if (content4 != "" && end4 != "") {
+          dataset.push({
+            label: content4,
+            data: [end4 - end3],
+            backgroundColor: "rgba(11,5,169,0.5)"
+          });
+        }
+        if (content5 != "" && end5 != "") {
+          dataset.push({
+            label: content5,
+            data: [end5 - end4],
+            backgroundColor: "rgba(11,5,59,0.5)"
+          });
+        }
+        if (content6 != "" && end6 != "") {
+          dataset.push({
+            label: content6,
+            data: [end6 - end5],
+            backgroundColor: "rgba(1,5,169,0.5)"
+          });
+        }
+        if (content7 != "" && end7 != "") {
+          dataset.push({
+            label: content7,
+            data: [end7 - end6],
+            backgroundColor: "rgba(11,35,169,0.5)"
+          });
+        }
+        if (content8 != "" && end8 != "") {
+          dataset.push({
+            label: content8,
+            data: [end8 - end7],
+            backgroundColor: "rgba(111,5,169,0.5)"
+          });
+        }
+        if (content9 != "" && end9 != "") {
+          dataset.push({
+            label: content9,
+            data: [end9 - end8],
+            backgroundColor: "rgba(11,5,19,0.5)"
+          });
+        }
+        if (content10 != "" && end10 != "") {
+          dataset.push({
+            label: content10,
+            data: [end10 - end9],
+            backgroundColor: "rgba(11,115,169,0.5)"
+          });
+        }
+
+        // 背景色の設定
+        Chart.plugins.register({
+          beforeDraw: function(ch){
+            var ctx = ch.chart.ctx;
+            ctx.fillStyle ="#FFFFFF";
+            ctx.fillRect(0, 0, ch.chart.width, ch.chart.height);
+          }
+        });
+
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+          type: 'horizontalBar',
+          data: {
+            datasets: dataset
+          },
+          options: {
+            responsive: false,
+            title: {
+              display: true,
+              text: title,
+              fontSize: 18,
+              padding: 2
+            },
+            scales: {
+              xAxes: [{
+                stacked: true,
+                ticks: {
+                  // suggestedMax: 26,
+                  min: start,
+                  stepSize: 1,
+                  fontSize: 10,
+                  callback: function(value, index, values){
+                    return  value +  '時'
+                  }
+                }
+              }],
+              yAxes: [{
+                barThickness: 20,
+                stacked: true
+              }]
+            },
+          }
+        });
+
+        var canvas = document.getElementById('myChart');
+        canvas.width = 315;
+        canvas.height = 166;
+
+      } else {
+        console.log("入力が足りないよ〜");
+      }
+    }
+
+    $("#plus-button").on("click", function () {
+      if($('#form-end2').css('display') === 'none'){
+        $('#form-end2').css('display', '');
+      } else if($('#form-end3').css('display') === 'none'){
+        $('#form-end3').css('display', '');
+        $('#close-end2').css('display', 'none');
+      } else if($('#form-end4').css('display') === 'none'){
+        $('#form-end4').css('display', '');
+        $('#close-end3').css('display', 'none');
+      } else if($('#form-end5').css('display') === 'none'){
+        $('#form-end5').css('display', '');
+        $('#close-end4').css('display', 'none');
+      } else if($('#form-end6').css('display') === 'none'){
+        $('#form-end6').css('display', '');
+        $('#close-end5').css('display', 'none');
+      } else if($('#form-end7').css('display') === 'none'){
+        $('#form-end7').css('display', '');
+        $('#close-end6').css('display', 'none');
+      } else if($('#form-end8').css('display') === 'none'){
+        $('#form-end8').css('display', '');
+        $('#close-end7').css('display', 'none');
+      } else if($('#form-end9').css('display') === 'none'){
+        $('#form-end9').css('display', '');
+        $('#close-end8').css('display', 'none');
+      } else if($('#form-end10').css('display') === 'none'){
+        $('#form-end10').css('display', '');
+        $('#close-end9').css('display', 'none');
+        $('#plus-button').css('display', 'none');
+      }
+    });
+
+    $("#close-end2").on("click", function () {
+      $('#form-end2').css('display', 'none');
+      $("#content2").val("")
+      $("#end2").val("")
+      display();
+    });
+    $("#close-end3").on("click", function () {
+      $('#form-end3').css('display', 'none');
+      $("#content3").val("")
+      $("#end3").val("")
+      $('#close-end2').css('display', '');
+      $('#plus-button').css('display', '');
+      display();
+    });
+    $("#close-end4").on("click", function () {
+      $('#form-end4').css('display', 'none');
+      $("#content4").val("")
+      $("#end4").val("")
+      $('#close-end3').css('display', '');
+      $('#plus-button').css('display', '');
+      display();
+    });
+    $("#close-end5").on("click", function () {
+      $('#form-end5').css('display', 'none');
+      $("#content5").val("")
+      $("#end5").val("")
+      $('#close-end4').css('display', '');
+      $('#plus-button').css('display', '');
+      display();
+    });
+    $("#close-end6").on("click", function () {
+      $('#form-end6').css('display', 'none');
+      $("#content6").val("")
+      $("#end6").val("")
+      $('#close-end5').css('display', '');
+      $('#plus-button').css('display', '');
+      display();
+    });
+    $("#close-end7").on("click", function () {
+      $('#form-end7').css('display', 'none');
+      $("#content7").val("")
+      $("#end7").val("")
+      $('#close-end6').css('display', '');
+      $('#plus-button').css('display', '');
+      display();
+    });
+    $("#close-end8").on("click", function () {
+      $('#form-end8').css('display', 'none');
+      $("#content8").val("")
+      $("#end8").val("")
+      $('#close-end7').css('display', '');
+      $('#plus-button').css('display', '');
+      display();
+    });
+    $("#close-end9").on("click", function () {
+      $('#form-end9').css('display', 'none');
+      $("#content9").val("")
+      $("#end9").val("")
+      $('#close-end8').css('display', '');
+      $('#plus-button').css('display', '');
+      display();
+    });
+    $("#close-end10").on("click", function () {
+      $('#form-end10').css('display', 'none');
+      $("#content10").val("")
+      $("#end10").val("")
+      $('#close-end9').css('display', '');
+      $('#plus-button').css('display', '');
+      display();
+    });
+
+    $("#save-button").on("click", function () {
+      // 処理前に Loading 画像を表示
+      dispLoading('画像を作ってるよ！');
+
+      // 生成する文字列の長さ
+      var l = 8;
+      // 生成する文字列に含める文字セット
+      var c = "abcdefghijklmnopqrstuvwxyz0123456789";
+      var cl = c.length;
+      var hash = "";
+      for(var i=0; i<l; i++){
+        hash += c[Math.floor(Math.random()*cl)];
       }
 
-      $("#plus-button").on("click", function () {
-        if($('#form-end2').css('display') === 'none'){
-          $('#form-end2').css('display', '');
-        } else if($('#form-end3').css('display') === 'none'){
-          $('#form-end3').css('display', '');
-          $('#close-end2').css('display', 'none');
-        } else if($('#form-end4').css('display') === 'none'){
-          $('#form-end4').css('display', '');
-          $('#close-end3').css('display', 'none');
-        } else if($('#form-end5').css('display') === 'none'){
-          $('#form-end5').css('display', '');
-          $('#close-end4').css('display', 'none');
-        } else if($('#form-end6').css('display') === 'none'){
-          $('#form-end6').css('display', '');
-          $('#close-end5').css('display', 'none');
-        } else if($('#form-end7').css('display') === 'none'){
-          $('#form-end7').css('display', '');
-          $('#close-end6').css('display', 'none');
-        } else if($('#form-end8').css('display') === 'none'){
-          $('#form-end8').css('display', '');
-          $('#close-end7').css('display', 'none');
-        } else if($('#form-end9').css('display') === 'none'){
-          $('#form-end9').css('display', '');
-          $('#close-end8').css('display', 'none');
-        } else if($('#form-end10').css('display') === 'none'){
-          $('#form-end10').css('display', '');
-          $('#close-end9').css('display', 'none');
-          $('#plus-button').css('display', 'none');
-        }
-      });
+      var myChart = document.getElementById("myChart");
 
-      $("#close-end2").on("click", function () {
-        $('#form-end2').css('display', 'none');
-        $("#content2").val("")
-        $("#end2").val("")
-        display();
-      });
-      $("#close-end3").on("click", function () {
-        $('#form-end3').css('display', 'none');
-        $("#content3").val("")
-        $("#end3").val("")
-        $('#close-end2').css('display', '');
-        $('#plus-button').css('display', '');
-        display();
-      });
-      $("#close-end4").on("click", function () {
-        $('#form-end4').css('display', 'none');
-        $("#content4").val("")
-        $("#end4").val("")
-        $('#close-end3').css('display', '');
-        $('#plus-button').css('display', '');
-        display();
-      });
-      $("#close-end5").on("click", function () {
-        $('#form-end5').css('display', 'none');
-        $("#content5").val("")
-        $("#end5").val("")
-        $('#close-end4').css('display', '');
-        $('#plus-button').css('display', '');
-        display();
-      });
-      $("#close-end6").on("click", function () {
-        $('#form-end6').css('display', 'none');
-        $("#content6").val("")
-        $("#end6").val("")
-        $('#close-end5').css('display', '');
-        $('#plus-button').css('display', '');
-        display();
-      });
-      $("#close-end7").on("click", function () {
-        $('#form-end7').css('display', 'none');
-        $("#content7").val("")
-        $("#end7").val("")
-        $('#close-end6').css('display', '');
-        $('#plus-button').css('display', '');
-        display();
-      });
-      $("#close-end8").on("click", function () {
-        $('#form-end8').css('display', 'none');
-        $("#content8").val("")
-        $("#end8").val("")
-        $('#close-end7').css('display', '');
-        $('#plus-button').css('display', '');
-        display();
-      });
-      $("#close-end9").on("click", function () {
-        $('#form-end9').css('display', 'none');
-        $("#content9").val("")
-        $("#end9").val("")
-        $('#close-end8').css('display', '');
-        $('#plus-button').css('display', '');
-        display();
-      });
-      $("#close-end10").on("click", function () {
-        $('#form-end10').css('display', 'none');
-        $("#content10").val("")
-        $("#end10").val("")
-        $('#close-end9').css('display', '');
-        $('#plus-button').css('display', '');
-        display();
-      });
+      // Base64へ変換
+      var imgData = myChart.toDataURL();
 
-      $("#save-button").on("click", function () {
-        // 処理前に Loading 画像を表示
-        dispLoading('画像を作ってるよ！');
-
-        // 生成する文字列の長さ
-        var l = 8;
-        // 生成する文字列に含める文字セット
-        var c = "abcdefghijklmnopqrstuvwxyz0123456789";
-        var cl = c.length;
-        var hash = "";
-        for(var i=0; i<l; i++){
-          hash += c[Math.floor(Math.random()*cl)];
-        }
-
-        var myChart = document.getElementById("myChart");
-
-        // Base64へ変換
-        var imgData = myChart.toDataURL();
-
-        $.ajax({
-          url: '/make',
-          type: 'POST',
-          dataType: 'json',
-          async: true,
-          data: {imgData: imgData, hash: hash},
-        }).done(function(data){
-          removeLoading();
-          swal({
-            type: 'success',
-            // title: 'Let\'s BigTweet!',
-            text: '画像完成！\n↓Let\'s BigTweet!↓',
-            imageUrl: `https://s3-ap-northeast-1.amazonaws.com/myday-production/images/${hash}.png`,
-            imageWidth: 315,
-            imageAlt: 'Custom image',
-            showConfirmButton: false,
-            showCloseButton: true,
-            footer: `<a href=https://twitter.com/share?text=%23BigTweet&url=https://myday.herokuapp.com?h=${hash} class=share_btn2>Twitterシェア</a>`,
-          })
-        });
+      $.ajax({
+        url: '/make',
+        type: 'POST',
+        dataType: 'json',
+        async: true,
+        data: {imgData: imgData, hash: hash},
+      }).done(function(data){
+        removeLoading();
+        swal({
+          type: 'success',
+          // title: 'Let\'s BigTweet!',
+          text: '画像完成！\n↓Let\'s BigTweet!↓',
+          imageUrl: `https://s3-ap-northeast-1.amazonaws.com/myday-production/images/${hash}.png`,
+          imageWidth: 315,
+          imageAlt: 'Custom image',
+          showConfirmButton: false,
+          showCloseButton: true,
+          footer: `<a href=https://twitter.com/share?text=%23BigTweet&url=https://myday.herokuapp.com?h=${hash} class=share_btn2>Twitterシェア</a>`,
+        })
       });
-
-      // //todo 直す！
-      // // 前の時間以降しか選択肢に出さなくする制御
-      // $('#start').change(function() {
-      //   const text = $('option:selected').text();
-      //
-      //   // 消した選択肢を戻すためだが、現状一回全部消えて、もう一度選択肢直すと再度時間が出てくる未完全な仕様になってる
-      //   $("#start option").clone().appendTo($("#end1"));
-      //
-      //   $('#end1 option').each( function(){
-      //     console.log($(this).text())
-      //     if($(this).text() == text) {
-      //       $(this).remove();
-      //       return false;
-      //     } else {
-      //       $(this).remove();
-      //     }
-      //   });
-      // });
-      //
-      // $('#end1').change(function() {
-      //   const text = $('option:selected').text();
-      //
-      //   // 消した選択肢を戻すためだが、現状一回全部消えて、もう一度選択肢直すと再度時間が出てくる未完全な仕様になってる
-      //   $("#start option").clone().appendTo($("#end2"));
-      //
-      //   $('#end2 option').each( function(){
-      //
-      //     if($(this).text() == text) {
-      //       $(this).remove();
-      //       return false;
-      //     } else {
-      //       $(this).remove();
-      //     }
-      //   });
-      // });
-
     });
+
+    // //todo 直す！
+    // // 前の時間以降しか選択肢に出さなくする制御
+    // $('#start').change(function() {
+    //   const text = $('option:selected').text();
+    //
+    //   // 消した選択肢を戻すためだが、現状一回全部消えて、もう一度選択肢直すと再度時間が出てくる未完全な仕様になってる
+    //   $("#start option").clone().appendTo($("#end1"));
+    //
+    //   $('#end1 option').each( function(){
+    //     console.log($(this).text())
+    //     if($(this).text() == text) {
+    //       $(this).remove();
+    //       return false;
+    //     } else {
+    //       $(this).remove();
+    //     }
+    //   });
+    // });
+    //
+    // $('#end1').change(function() {
+    //   const text = $('option:selected').text();
+    //
+    //   // 消した選択肢を戻すためだが、現状一回全部消えて、もう一度選択肢直すと再度時間が出てくる未完全な仕様になってる
+    //   $("#start option").clone().appendTo($("#end2"));
+    //
+    //   $('#end2 option').each( function(){
+    //
+    //     if($(this).text() == text) {
+    //       $(this).remove();
+    //       return false;
+    //     } else {
+    //       $(this).remove();
+    //     }
+    //   });
+    // });
+
+  });
 
 // 使い方の説明など
 $(function() {
@@ -659,4 +670,4 @@ function removeLoading(){
   $("#loading").remove();
 }
 
-  </script>
+</script>

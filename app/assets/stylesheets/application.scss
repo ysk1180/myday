@@ -14,10 +14,10 @@ body {
 }
 
 footer {
-  padding: 25px 0;
-  margin: 25px 0 0 0;
+  padding: 10px 0;
+  margin: 10px 0 0 0;
   text-align: center;
-  background-color: #DBD4D1;
+  background-color: #FFFFFF;
 }
 
 @font-face {
@@ -114,4 +114,8 @@ footer {
 // formの縦の間隔が広すぎたので修正
 .form-group {
   margin-bottom: 3px;
+}
+
+#account {
+  padding: 5px;
 }
