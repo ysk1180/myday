@@ -190,6 +190,12 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 
+<% if @hash1.present? %>
+  <div>
+    <p>最近作成された画像</p>
+    <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash1 %>.png" />
+  </div>
+<% end %>
 
 <div id="conf-button">
   <button id="save-button" class="square_btn"><i class="fa fa-check fa-fw"></i>画像を確認する</button>

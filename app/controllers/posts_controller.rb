@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def new
+    @hash1 = Post.last.h unless Post.last.present?
   end
 
   def make
