@@ -581,6 +581,7 @@
       }
 
       var myChart = document.getElementById("myChart");
+      var title = $("#title").val();
 
       // Base64へ変換
       var imgData = myChart.toDataURL();
@@ -590,7 +591,7 @@
         type: 'POST',
         dataType: 'json',
         async: true,
-        data: {imgData: imgData, hash: hash},
+        data: {imgData: imgData, hash: hash, title: title},
       }).done(function(data){
         removeLoading();
         swal({
