@@ -188,14 +188,6 @@
 <div id="chart-container">
   <canvas id="myChart" width="315" height="166"></canvas>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-
-<% if @hash1.present? %>
-  <div>
-    <p>最近作成された画像</p>
-    <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash1 %>.png" />
-  </div>
-<% end %>
 
 <div id="conf-button">
   <button id="save-button" class="square_btn"><i class="fa fa-check fa-fw"></i>画像を確認する</button>
@@ -203,6 +195,22 @@
   <small class="text-muted">画像確認後にツイートするかを決めます</small>
 </div>
 
+<% if @hash.present? %>
+  <div id="recent-img">
+    <p><i class="fa fa-star fa-fw"></i>最近作成された画像</p>
+    <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[0] %>.png" />
+    <% if @hash[1].present? %>
+      <br>
+      <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[1] %>.png" />
+    <% end %>
+    <% if @hash[2].present? %>
+      <br>
+      <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[2] %>.png" />
+    <% end %>
+  </div>
+<% end %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 <script>
 
   $(function(){

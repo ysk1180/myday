@@ -1,6 +1,13 @@
 class PostsController < ApplicationController
   def new
-    @hash1 = Post.last.h if Post.last.present?
+    post = Post.all
+    if post[-3].present?
+      @hash = Post.last(3).pluck(:h)
+    elsif post[-2].present?
+      @hash = Post.last(2).pluck(:h)
+    elsif post.present?
+      @hash = Post.pluck(:h)
+    end
   end
 
   def make
