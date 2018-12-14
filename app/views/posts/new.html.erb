@@ -198,15 +198,17 @@
 <% if @hash.present? %>
   <div id="recent-img">
     <p><i class="fa fa-star fa-fw"></i>最近作成された画像</p>
-    <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[0] %>.png" />
-    <% if @hash[1].present? %>
-      <br>
-      <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[1] %>.png" />
-    <% end %>
     <% if @hash[2].present? %>
-      <br>
       <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[2] %>.png" />
+      <br>
+      <br>
     <% end %>
+    <% if @hash[1].present? %>
+      <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[1] %>.png" />
+      <br>
+      <br>
+    <% end %>
+    <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[0] %>.png" />
   </div>
 <% end %>
 
