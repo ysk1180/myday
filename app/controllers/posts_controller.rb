@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     elsif post.present?
       @hash = Post.pluck(:h)
     end
+    @count = post.count
   end
 
   def make

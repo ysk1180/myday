@@ -197,8 +197,10 @@
 
 <% if @hash.present? %>
   <div id="recent-img">
-    <p><i class="fa fa-star fa-fw"></i>最近作成された画像</p>
+    <i class="fa fa-star fa-fw"></i>最近作成された画像<br>
+    <small class="text-muted">今までに<%= @count %>個の画像が作られたよ</small><br>
     <% if @hash[2].present? %>
+      <br>
       <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[2] %>.png" />
       <br>
       <br>
