@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def new
+    @h = params[:h]
     post = Post.all
     if post[-3].present?
       @hash = Post.last(3).pluck(:h)
