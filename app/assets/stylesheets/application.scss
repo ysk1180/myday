@@ -68,7 +68,7 @@ footer {
 
 // 使い方の説明など
 #accordion dt {
-  border-bottom: solid 1px white;
+  border-bottom: solid 2px #E6EFFA;
   background-color: #FFFFFF;
   cursor: pointer;
   padding: 8px;
@@ -109,7 +109,7 @@ footer {
 // 画像確認ボタンここまで
 
 #example {
-  padding: 20px;
+  padding: 10px;
 }
 
 #chart-container {
@@ -151,3 +151,6 @@ footer {
   margin: 10px;
 }
 
+.under {
+  background: linear-gradient(transparent 70%, #ff99ab 30%);
+  }

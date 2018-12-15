@@ -1,9 +1,19 @@
 <div>
   <dl id="accordion">
     <dt><i class="fa fa-clock-o fa-fw"></i>どんなサービス？</dt>
-    <dd>自分の時間を共有できるサービスです。こんなツイートが簡単にできちゃいます。</dd>
+    <dd>
+    <span class="under">自分の１日をかんたんにTwitterでシェア</span>できるサービスです。<br>
+    <i class="fa fa-hand-o-down fa-fw"></i>こんなツイートが簡単にできます。<br>
+    <%= image_tag 'sample.jpg', width: 315, class: 'sample' %>
+    </dd>
     <dt><i class="fa fa-hand-o-up fa-fw"></i>使い方</dt>
-    <dd>時間・内容入力→画像作成→ツイートできます。</dd>
+    <dd>
+    1. <span class="under">タイトル・やったこと・時間</span>を入力<br>
+    （入力すると自動でグラフが出力されます）<br>
+    2. <span class="under">画像確認ボタン→ツイートボタン</span>で<br>
+    　かんたんシェア<br>
+    （画像はTwitter上で自動で表示されます）
+    </dd>
   </dl>
 </div>
 
@@ -181,8 +191,7 @@
 <% end %>
 
 <div id='example'>
-  <p>こんなツイートが簡単にできるよ！</p>
-  ここに画像
+  <i class="fa fa-lightbulb-o fa-fw"></i><span class="under"><i>タイトル・開始時刻・やったこと①・終了時刻</span>を入力してみましょう！</i>
 </div>
 
 <div id="chart-container">
