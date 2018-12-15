@@ -1,0 +1,2 @@
+class PostYear < ApplicationRecord
+end
