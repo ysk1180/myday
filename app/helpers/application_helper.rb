@@ -1,7 +1,7 @@
 module ApplicationHelper
   def get_twitter_card_info(h)
     twitter_card = {}
-    if hash.present?
+    if h.present?
       twitter_card[:url] = "https://showmyday.herokuapp.com/?h=#{h}"
       twitter_card[:image] = "https://s3-ap-northeast-1.amazonaws.com/myday-production/images/#{h}.png"
     else
