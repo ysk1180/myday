@@ -623,41 +623,60 @@
       });
     });
 
-    // //todo 直す！
-    // // 前の時間以降しか選択肢に出さなくする制御
-    // $('#start').change(function() {
-    //   const text = $('option:selected').text();
-    //
-    //   // 消した選択肢を戻すためだが、現状一回全部消えて、もう一度選択肢直すと再度時間が出てくる未完全な仕様になってる
-    //   $("#start option").clone().appendTo($("#end1"));
-    //
-    //   $('#end1 option').each( function(){
-    //     console.log($(this).text())
-    //     if($(this).text() == text) {
-    //       $(this).remove();
-    //       return false;
-    //     } else {
-    //       $(this).remove();
-    //     }
-    //   });
-    // });
-    //
-    // $('#end1').change(function() {
-    //   const text = $('option:selected').text();
-    //
-    //   // 消した選択肢を戻すためだが、現状一回全部消えて、もう一度選択肢直すと再度時間が出てくる未完全な仕様になってる
-    //   $("#start option").clone().appendTo($("#end2"));
-    //
-    //   $('#end2 option').each( function(){
-    //
-    //     if($(this).text() == text) {
-    //       $(this).remove();
-    //       return false;
-    //     } else {
-    //       $(this).remove();
-    //     }
-    //   });
-    // });
+    // 一つ上の時間以降しか出さなくする関数
+    var time = function (now, name){
+      var text = $(`#${now} option:selected`).text();
+      var now_time_value = Number($(`#${now} option:selected`).val());
+      var after_time_value = Number($(`#${name} option:selected`).val());
+      var after_time = $(`#${name} option:selected`).val();
+      $(`select#${name} option`).remove();
+      $("#start option").clone().appendTo($(`#${name}`));
+      $(`#${name} option`).each( function(){
+        if($(this).text() == "") {
+        } else if($(this).text() == text) {
+          $(this).remove();
+          return false;
+        } else {
+          $(this).remove();
+        }
+      });
+      // 上の時間を変えた時に、下の時間より前なら上の時間を保持するための実装
+      if(after_time_value > now_time_value){
+        $(`#${name} option[value='${after_time}']`).prop('selected',true);
+        return false;
+      }
+    }
+
+    $('#start').change(function() {
+      time('start', 'end1');
+    });
+    $('#end1').change(function() {
+      time('end1', 'end2');
+    });
+    $('#end2').change(function() {
+      time('end2', 'end3');
+    });
+    $('#end3').change(function() {
+      time('end3', 'end4');
+    });
+    $('#end4').change(function() {
+      time('end4', 'end5');
+    });
+    $('#end5').change(function() {
+      time('end5', 'end6');
+    });
+    $('#end6').change(function() {
+      time('end6', 'end7');
+    });
+    $('#end7').change(function() {
+      time('end7', 'end8');
+    });
+    $('#end8').change(function() {
+      time('end8', 'end9');
+    });
+    $('#end9').change(function() {
+      time('end9', 'end10');
+    });
 
   });
 
