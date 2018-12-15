@@ -199,9 +199,9 @@
 </div>
 
 <div id="conf-button">
-  <button id="save-button" class="square_btn"><i class="fa fa-check fa-fw"></i>画像を確認する</button>
+  <button id="save-button" class="square_btn"><i class="fa fa-check fa-fw"></i>がぞうをつくる</button>
   <br>
-  <small class="text-muted">画像確認後にツイートするかを決めます</small>
+  <small class="text-muted">まだTwitterシェアされないよ</small>
 </div>
 
 <% if @hash.present? %>
@@ -637,7 +637,7 @@
         Swal({
           type: 'error',
           title: '画像作成に失敗しました...(; ;)',
-          text: 'もう一度「画像を確認する」ボタンを押してみてください(> <)',
+          text: 'もう一度「がぞうをつくる」ボタンを押してみてください(> <)',
         })
       });
     });
