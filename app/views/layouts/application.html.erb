@@ -27,6 +27,9 @@
 
     <%# モーダル %>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+
+    <%# Google Analytics %>
+    <%= analytics_init if Rails.env.production? %>
   </head>
 
   <body>
