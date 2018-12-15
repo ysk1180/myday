@@ -10,7 +10,7 @@ module ApplicationHelper
     end
     twitter_card[:title] = 'いちにちをシェア'
     twitter_card[:card] = 'summary_large_image'
-    twitter_card[:description] = 'ログイン不要でかんたんに画像作成できる！'
+    twitter_card[:description] = '自分の１日をかんたんにTwitterでシェアできるサービスです'
     twitter_card
   end
 end
