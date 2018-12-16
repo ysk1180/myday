@@ -479,10 +479,31 @@
         Chart.plugins.register({
           beforeDraw: function(ch){
             var ctx = ch.chart.ctx;
-            ctx.fillStyle ="#FFFFFF";
+            ctx.fillStyle = "#FFFFFF";
             ctx.fillRect(0, 0, ch.chart.width, ch.chart.height);
           }
         });
+
+        // 凡例の微調整
+        var box_width = 40;
+        var font_size = 12;
+        var label_padding = 10;
+        var total_length = content1.length + content2.length + content3.length + content4.length + content5.length + content6.length + content7.length + content8.length + content9.length + content10.length + content11.length
+        if(total_length > 60) {
+          box_width = 10;
+          font_size = 6;
+          label_padding = 5;
+        }else if(total_length > 50) {
+          box_width = 20;
+          font_size = 8;
+          label_padding = 5;
+        }else if(total_length > 40) {
+          box_width = 30;
+          font_size = 10;
+          label_padding = 5;
+        }else if(total_length > 30) {
+          label_padding = 5;
+        }
 
         var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
@@ -491,6 +512,14 @@
             datasets: dataset
           },
           options: {
+            legend: {
+              labels:{
+                boxWidth: box_width,
+                fontsize: font_size,
+                padding: label_padding,
+                // fontColor: "white"
+              }
+            },
             tooltips: {
               enabled: false
             },
@@ -499,7 +528,8 @@
               display: true,
               text: title,
               fontSize: 18,
-              padding: 2
+              padding: 2,
+              // fontColor: "white"
             },
             scales: {
               xAxes: [{
@@ -509,9 +539,13 @@
                   min: start,
                   stepSize: 1,
                   fontSize: 10,
+                  // fontColor: "white",
                   callback: function(value, index, values){
                     return  value +  '月'
                   }
+                // },
+                // gridLines: {
+                //   color: "white"
                 }
               }],
               yAxes: [{
