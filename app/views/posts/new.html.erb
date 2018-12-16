@@ -503,7 +503,11 @@
                   stepSize: 1,
                   fontSize: 10,
                   callback: function(value, index, values){
-                    return  value +  '時'
+                    if(value % 1 != 0){
+                      return value - 0.5 + '時半'
+                    }else{
+                      return Number(value) + '時'
+                    }
                   }
                 }
               }],
