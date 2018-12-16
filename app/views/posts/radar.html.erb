@@ -18,7 +18,7 @@
       </dd>
       <dt><i class="fa fa-hand-o-up fa-fw"></i>使い方</dt>
       <dd>
-      1. <span class="under">タイトル・項目・月</span>を入力<br>
+      1. <span class="under">タイトル・項目①〜⑤・5段階評価</span>を入力<br>
       （入力すると自動でグラフが出力されます）<br>
       2. <span class="under">がぞうをつくるボタン→ツイートボタン</span>で<br>
       　かんたんシェア<br>
@@ -44,7 +44,9 @@
 
       <div class="form-group col-4">
         <small class="text-muted">5段階評価</small>
-        <%= form.select :end1, select_radar, {}, {class: 'form-control'} %>
+        <div class="field" id="star1">
+          <%= form.hidden_field :raiting, id: :end1 %>
+        </div>
       </div>
     </div>
 
@@ -56,7 +58,9 @@
 
       <div class="form-group col-4">
         <small class="text-muted">5段階評価</small>
-        <%= form.select :end2, select_radar, {}, {class: 'form-control'} %>
+        <div class="field" id="star2">
+          <%= form.hidden_field :raiting, id: :end2 %>
+        </div>
       </div>
     </div>
 
@@ -68,7 +72,9 @@
 
       <div class="form-group col-4">
         <small class="text-muted">5段階評価</small>
-        <%= form.select :end3, select_radar, {}, {class: 'form-control'} %>
+        <div class="field" id="star3">
+          <%= form.hidden_field :raiting, id: :end3 %>
+        </div>
       </div>
     </div>
 
@@ -80,7 +86,9 @@
 
       <div class="form-group col-4">
         <small class="text-muted">5段階評価</small>
-        <%= form.select :end4, select_radar, {}, {class: 'form-control'} %>
+        <div class="field" id="star4">
+          <%= form.hidden_field :raiting, id: :end4 %>
+        </div>
       </div>
     </div>
 
@@ -92,7 +100,9 @@
 
       <div class="form-group col-4">
         <small class="text-muted">5段階評価</small>
-        <%= form.select :end5, select_radar, {}, {class: 'form-control'} %>
+        <div class="field" id="star5">
+          <%= form.hidden_field :raiting, id: :end5 %>
+        </div>
       </div>
     </div>
   <% end %>
@@ -231,24 +241,15 @@
         });
 
         // 凡例の微調整
-        var box_width = 40;
         var font_size = 12;
-        var label_padding = 10;
         var total_length = content1.length + content2.length + content3.length + content4.length + content5.length
         if(total_length > 60) {
-          box_width = 10;
           font_size = 6;
-          label_padding = 5;
         }else if(total_length > 50) {
-          box_width = 20;
           font_size = 8;
-          label_padding = 5;
         }else if(total_length > 40) {
-          box_width = 30;
           font_size = 10;
-          label_padding = 5;
         }else if(total_length > 30) {
-          label_padding = 5;
         }
 
         var ctx = document.getElementById("myChart");
@@ -274,12 +275,12 @@
               display: true,
               position: 'top',
               text: title,
-              fontSize: 18,
-              padding: 2,
+              fontSize: 16,
+              padding: 1,
             },
             scale: {
               pointLabels: {
-                fontSize: 15,
+                fontSize: 11,
               },
               ticks: {
                 beginAtZero: true,
@@ -352,6 +353,58 @@
       });
     });
 
+    // 星
+    $('#star1').raty({
+      size: 36,
+      starOff: '<%= asset_path('star-off.png') %>',
+      starOn: '<%= asset_path('star-on.png') %>',
+      hints: ['1', '2', '3', '4', '5'],
+      click: function(score, e) {
+        $("#end1").val(score)
+        display();
+      }
+    });
+    $('#star2').raty({
+      size: 36,
+      starOff: '<%= asset_path('star-off.png') %>',
+      starOn: '<%= asset_path('star-on.png') %>',
+      hints: ['1', '2', '3', '4', '5'],
+      click: function(score, e) {
+        $("#end2").val(score)
+        display();
+      }
+    });
+    $('#star3').raty({
+      size: 36,
+      starOff: '<%= asset_path('star-off.png') %>',
+      starOn: '<%= asset_path('star-on.png') %>',
+      hints: ['1', '2', '3', '4', '5'],
+      click: function(score, e) {
+        $("#end3").val(score)
+        display();
+      }
+    });
+    $('#star4').raty({
+      size: 36,
+      starOff: '<%= asset_path('star-off.png') %>',
+      starOn: '<%= asset_path('star-on.png') %>',
+      hints: ['1', '2', '3', '4', '5'],
+      click: function(score, e) {
+        $("#end4").val(score)
+        display();
+      }
+    });
+    $('#star5').raty({
+      size: 36,
+      starOff: '<%= asset_path('star-off.png') %>',
+      starOn: '<%= asset_path('star-on.png') %>',
+      hints: ['1', '2', '3', '4', '5'],
+      click: function(score, e) {
+        $("#end5").val(score)
+        display();
+      }
+    });
+
   });
 
 // 使い方の説明など
@@ -385,5 +438,4 @@ function dispLoading(msg){
 function removeLoading(){
   $("#loading").remove();
 }
-
 </script>
