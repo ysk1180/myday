@@ -541,6 +541,10 @@
                   fontSize: 10,
                   // fontColor: "white",
                   callback: function(value, index, values){
+                    // 月末や月初(◯/1)とするときの対応の仕方
+                    // if(value == 13){
+                    //   return '1月'
+                    // }
                     return  value +  '月'
                   }
                 // },
