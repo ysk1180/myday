@@ -1,21 +1,21 @@
-<div class="header">
-  <a href="/" style="color: white;">いちにち<small>を</small>シェア</a>
+<div class="header_year">
+  <a href="/year" style="color: white;">いちねん<small>を</small>シェア</a>
 </div>
-<div class="change_year">
-  <a href="/year" style="color: white;"><u>いちねん<small>を</small>シェア<small>は</small>こちら<small>から</small><i class="fa fa-mouse-pointer fa-fw"></i></u></a>
+<div class="change_day">
+  <a href="/" style="color: white;"><u>いちにち<small>を</small>シェア<small>は</small>こちら<small>から</small><i class="fa fa-mouse-pointer fa-fw"></i></u></a>
 </div>
 <div class="container">
   <div>
     <dl id="accordion">
       <dt><i class="fa fa-clock-o fa-fw"></i>どんなサービス？</dt>
       <dd>
-      <span class="under">自分の１日をかんたんにTwitterでシェア</span>できるサービスです<br>
+      <span class="under">自分の１年をかんたんにTwitterでシェア</span>できるサービスです<br>
       <i class="fa fa-hand-o-down fa-fw"></i>こんなツイートが簡単にできます<br>
       <%= image_tag 'sample.jpg', width: 315, class: 'sample' %>
       </dd>
       <dt><i class="fa fa-hand-o-up fa-fw"></i>使い方</dt>
       <dd>
-      1. <span class="under">タイトル・やったこと・時間</span>を入力<br>
+      1. <span class="under">タイトル・今年やったこと・月</span>を入力<br>
       （入力すると自動でグラフが出力されます）<br>
       2. <span class="under">がぞうをつくるボタン→ツイートボタン</span>で<br>
       　かんたんシェア<br>
@@ -28,37 +28,37 @@
 
     <div class="form-row" id="form-title-start">
       <div class="form-group col-7">
-        <small class="text-muted">タイトル</small>
+        <small class="text-muted">今年１年のタイトル</small>
         <%= form.text_area :title, id: :title, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-3">
-        <small class="text-muted">開始時刻</small>
-        <%= form.select :start, select_time, {}, {class: 'form-control'} %>
+        <small class="text-muted">何月から</small>
+        <%= form.select :start, select_year, {}, {class: 'form-control'} %>
       </div>
     </div>
 
     <div class="form-row" id="form-end1">
       <div class="form-group col-7">
-        <small class="text-muted">やったこと①</small>
+        <small class="text-muted">今年やったこと①</small>
         <%= form.text_area :content1, id: :content1, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end1, select_time, {}, {class: 'form-control'} %>
+        <small class="text-muted">何月まで</small>
+        <%= form.select :end1, select_year, {}, {class: 'form-control'} %>
       </div>
     </div>
 
     <div class="form-row" id="form-end2" style="display: none;">
       <div class="form-group col-7">
-        <small class="text-muted">やったこと②</small>
+        <small class="text-muted">今年やったこと②</small>
         <%= form.text_area :content2, id: :content2, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end2, select_time, {}, {class: 'form-control'} %>
+        <small class="text-muted">何月まで</small>
+        <%= form.select :end2, select_year, {}, {class: 'form-control'} %>
       </div>
 
       <div class="form-group col-2 minus-area">
@@ -68,13 +68,13 @@
 
     <div class="form-row" id="form-end3" style="display: none;">
       <div class="form-group col-7">
-        <small class="text-muted">やったこと③</small>
+        <small class="text-muted">今年やったこと③</small>
         <%= form.text_area :content3, id: :content3, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end3, select_time, {}, {class: 'form-control'} %>
+        <small class="text-muted">何月まで</small>
+        <%= form.select :end3, select_year, {}, {class: 'form-control'} %>
       </div>
 
       <div class="form-group col-2 minus-area">
@@ -84,13 +84,13 @@
 
     <div class="form-row" id="form-end4" style="display: none;">
       <div class="form-group col-7">
-        <small class="text-muted">やったこと④</small>
+        <small class="text-muted">今年やったこと④</small>
         <%= form.text_area :content4, id: :content4, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end4, select_time, {}, {class: 'form-control'} %>
+        <small class="text-muted">何月まで</small>
+        <%= form.select :end4, select_year, {}, {class: 'form-control'} %>
       </div>
 
       <div class="form-group col-2 minus-area">
@@ -100,13 +100,13 @@
 
     <div class="form-row" id="form-end5" style="display: none;">
       <div class="form-group col-7">
-        <small class="text-muted">やったこと⑤</small>
+        <small class="text-muted">今年やったこと⑤</small>
         <%= form.text_area :content5, id: :content5, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end5, select_time, {}, {class: 'form-control'} %>
+        <small class="text-muted">何月まで</small>
+        <%= form.select :end5, select_year, {}, {class: 'form-control'} %>
       </div>
 
       <div class="form-group col-2 minus-area">
@@ -116,13 +116,13 @@
 
     <div class="form-row" id="form-end6" style="display: none;">
       <div class="form-group col-7">
-        <small class="text-muted">やったこと⑥</small>
+        <small class="text-muted">今年やったこと⑥</small>
         <%= form.text_area :content6, id: :content6, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end6, select_time, {}, {class: 'form-control'} %>
+        <small class="text-muted">何月まで</small>
+        <%= form.select :end6, select_year, {}, {class: 'form-control'} %>
       </div>
 
       <div class="form-group col-2 minus-area">
@@ -132,13 +132,13 @@
 
     <div class="form-row" id="form-end7" style="display: none;">
       <div class="form-group col-7">
-        <small class="text-muted">やったこと⑦</small>
+        <small class="text-muted">今年やったこと⑦</small>
         <%= form.text_area :content7, id: :content7, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end7, select_time, {}, {class: 'form-control'} %>
+        <small class="text-muted">何月まで</small>
+        <%= form.select :end7, select_year, {}, {class: 'form-control'} %>
       </div>
 
       <div class="form-group col-2 minus-area">
@@ -148,13 +148,13 @@
 
     <div class="form-row" id="form-end8" style="display: none;">
       <div class="form-group col-7">
-        <small class="text-muted">やったこと⑧</small>
+        <small class="text-muted">今年やったこと⑧</small>
         <%= form.text_area :content8, id: :content8, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end8, select_time, {}, {class: 'form-control'} %>
+        <small class="text-muted">何月まで</small>
+        <%= form.select :end8, select_year, {}, {class: 'form-control'} %>
       </div>
 
       <div class="form-group col-2 minus-area">
@@ -164,13 +164,13 @@
 
     <div class="form-row" id="form-end9" style="display: none;">
       <div class="form-group col-7">
-        <small class="text-muted">やったこと⑨</small>
+        <small class="text-muted">今年やったこと⑨</small>
         <%= form.text_area :content9, id: :content9, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end9, select_time, {}, {class: 'form-control'} %>
+        <small class="text-muted">何月まで</small>
+        <%= form.select :end9, select_year, {}, {class: 'form-control'} %>
       </div>
 
       <div class="form-group col-2 minus-area">
@@ -180,13 +180,13 @@
 
     <div class="form-row" id="form-end10" style="display: none;">
       <div class="form-group col-7">
-        <small class="text-muted">やったこと⑩</small>
+        <small class="text-muted">今年やったこと⑩</small>
         <%= form.text_area :content10, id: :content10, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-3">
-        <small class="text-muted">終了時刻</small>
-        <%= form.select :end10, select_time, {}, {class: 'form-control'} %>
+        <small class="text-muted">何月まで</small>
+        <%= form.select :end10, select_year, {}, {class: 'form-control'} %>
       </div>
 
       <div class="form-group col-2 minus-area">
@@ -194,11 +194,27 @@
       </div>
     </div>
 
+    <div class="form-row" id="form-end11" style="display: none;">
+      <div class="form-group col-7">
+        <small class="text-muted">今年やったこと11</small>
+        <%= form.text_area :content11, id: :content11, class:'form-control', rows:"1" %>
+      </div>
+
+      <div class="form-group col-3">
+        <small class="text-muted">何月まで</small>
+        <%= form.select :end11, select_year, {}, {class: 'form-control'} %>
+      </div>
+
+      <div class="form-group col-2 minus-area">
+        <span id="close-end11"><i class="fa fa-minus-circle fa-2x fa-fw minus-mark"></i></span>
+      </div>
+    </div>
+
     <div id="plus-button"><i class="fa fa-plus-circle fa-2x fa-fw plus-mark"></i></div>
   <% end %>
 
   <div id='example'>
-    <i class="fa fa-lightbulb-o fa-fw"></i><span class="under"><i>タイトル・開始時刻・やったこと①・終了時刻</span>を入力してみましょう！</i>
+    <i class="fa fa-lightbulb-o fa-fw"></i><span class="under"><i>タイトル・何月から・今年やったこと①・何月まで</span>を入力してみましょう！</i>
   </div>
 
   <div id="chart-container">
@@ -206,25 +222,25 @@
   </div>
 
   <div id="conf-button">
-    <button id="save-button" class="square_btn"><i class="fa fa-check fa-fw"></i>がぞう<small>を</small>つくる</button>
+    <button id="save-button" class="square_btn_year"><i class="fa fa-check fa-fw"></i>がぞう<small>を</small>つくる</button>
     <br>
     <small class="text-muted">まだTwitterシェアされないよ</small>
   </div>
-
-  <% if @hash.present? %>
-    <div id="recent-img">
-      <i class="fa fa-star fa-fw"></i>最近作成された画像<br>
-      <small class="text-muted">今までに<%= @count %>個の画像が作られたよ</small><br>
-      <% if @hash[2].present? %>
-        <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[2] %>.png" class="r-img"/>
-      <% end %>
-      <% if @hash[1].present? %>
-        <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[1] %>.png" class="r-img"/>
-      <% end %>
-      <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[0] %>.png" class="r-img"/>
-    </div>
-  <% end %>
 </div>
+
+<% if @hash.present? %>
+  <div id="recent-img">
+    <i class="fa fa-star fa-fw"></i>最近作成された画像<br>
+    <small class="text-muted">今までに<%= @count %>個の画像が作られたよ</small><br>
+    <% if @hash[2].present? %>
+      <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[2] %>.png" class="r-img"/>
+    <% end %>
+    <% if @hash[1].present? %>
+      <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[1] %>.png" class="r-img"/>
+    <% end %>
+    <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[0] %>.png" class="r-img"/>
+  </div>
+<% end %>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 <script>
@@ -253,6 +269,8 @@
     const end9_form = $("#end9")
     const content10_form = $("#content10")
     const end10_form = $("#end10")
+    const content11_form = $("#content11")
+    const end11_form = $("#end11")
 
     title_form.blur(function(){
       display();
@@ -320,6 +338,12 @@
     end10_form.change(function (){
       display();
     });
+    content11_form.blur(function(){
+      display();
+    });
+    end11_form.change(function (){
+      display();
+    });
 
     var display = function (){
       var title = $("#title").val();
@@ -344,6 +368,8 @@
       var end9 = $("#end9").val();
       var content10 = $("#content10").val();
       var end10 = $("#end10").val();
+      var content11 = $("#content11").val();
+      var end11 = $("#end11").val();
 
       if (start != "" && content1 != "" && end1 != ""){
         $('#example').css('display','none');
@@ -439,12 +465,21 @@
             borderWidth: 1
           });
         }
+        if (content11 != "" && end11 != "") {
+          dataset.push({
+            label: content11,
+            data: [end11 - end10],
+            backgroundColor: 'rgba(159, 217, 246, 0.5)',
+            borderColor: 'rgba(159, 217, 246, 1)',
+            borderWidth: 1
+          });
+        }
 
         // 背景色の設定
         Chart.plugins.register({
           beforeDraw: function(ch){
             var ctx = ch.chart.ctx;
-            ctx.fillStyle ="#FFFFFF";
+            ctx.fillStyle = "#FFFFFF";
             ctx.fillRect(0, 0, ch.chart.width, ch.chart.height);
           }
         });
@@ -453,7 +488,7 @@
         var box_width = 40;
         var font_size = 12;
         var label_padding = 10;
-        var total_length = content1.length + content2.length + content3.length + content4.length + content5.length + content6.length + content7.length + content8.length + content9.length + content10.length
+        var total_length = content1.length + content2.length + content3.length + content4.length + content5.length + content6.length + content7.length + content8.length + content9.length + content10.length + content11.length
         if(total_length > 60) {
           box_width = 10;
           font_size = 6;
@@ -481,7 +516,8 @@
               labels:{
                 boxWidth: box_width,
                 fontsize: font_size,
-                padding: label_padding
+                padding: label_padding,
+                // fontColor: "white"
               }
             },
             tooltips: {
@@ -492,7 +528,8 @@
               display: true,
               text: title,
               fontSize: 18,
-              padding: 2
+              padding: 2,
+              // fontColor: "white"
             },
             scales: {
               xAxes: [{
@@ -502,9 +539,13 @@
                   min: start,
                   stepSize: 1,
                   fontSize: 10,
+                  // fontColor: "white",
                   callback: function(value, index, values){
-                    return  value +  '時'
+                    return  value +  '月'
                   }
+                // },
+                // gridLines: {
+                //   color: "white"
                 }
               }],
               yAxes: [{
@@ -551,6 +592,9 @@
       } else if($('#form-end10').css('display') === 'none'){
         $('#form-end10').css('display', '');
         $('#close-end9').css('display', 'none');
+      } else if($('#form-end11').css('display') === 'none'){
+        $('#form-end11').css('display', '');
+        $('#close-end10').css('display', 'none');
         $('#plus-button').css('display', 'none');
       }
     });
@@ -625,12 +669,20 @@
       $('#plus-button').css('display', '');
       display();
     });
+    $("#close-end11").on("click", function () {
+      $('#form-end11').css('display', 'none');
+      $("#content11").val("")
+      $("#end11").val("")
+      $('#close-end10').css('display', '');
+      $('#plus-button').css('display', '');
+      display();
+    });
 
     $("#save-button").on("click", function () {
       // 処理前に Loading 画像を表示
       var data = ['大大吉','大吉','中吉','小吉','凶（ごめんね）'];
       var word = data[Math.floor(Math.random() * data.length)];
-      dispLoading(`画像作成中...今日の運勢は...${word}`);
+      dispLoading(`画像作成中...来年の運勢は...${word}`);
 
       // 生成する文字列の長さ
       var l = 8;
@@ -649,7 +701,7 @@
       var imgData = myChart.toDataURL();
 
       $.ajax({
-        url: '/make',
+        url: '/make_year',
         type: 'POST',
         dataType: 'json',
         async: true,
@@ -666,7 +718,7 @@
           showConfirmButton: false,
           showCloseButton: true,
           background: '#E6EFFA',
-          footer: `<a href=https://twitter.com/share?text=%23いちにちをシェア&url=https://showmyday.herokuapp.com?h=${hash} class=modal_btn><i class="fa fa-twitter fa-fw"></i>Twitterシェア</a>`,
+          footer: `<a href=https://twitter.com/share?text=%23いちねんをシェア&url=https://showmyday.herokuapp.com/yaer?h=${hash} class=modal_btn><i class="fa fa-twitter fa-fw"></i>Twitterシェア</a>`,
         })
       }).fail( function(data) {
         removeLoading();
@@ -731,6 +783,9 @@
     });
     $('#end9').change(function() {
       time('end9', 'end10');
+    });
+    $('#end10').change(function() {
+      time('end10', 'end11');
     });
 
   });

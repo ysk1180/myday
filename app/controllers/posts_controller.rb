@@ -19,6 +19,27 @@ class PostsController < ApplicationController
     render :json => data
   end
 
+  def year
+    @year = true
+    @h = params[:h]
+    post = PostYear.all
+    if post[-3].present?
+      @hash = PostYear.last(3).pluck(:h)
+    elsif post[-2].present?
+      @hash = PostYear.last(2).pluck(:h)
+    elsif post.present?
+      @hash = PostYear.pluck(:h)
+    end
+    @count = post.count
+  end
+
+  def make_year
+    generate(to_uploaded(params[:imgData]), params[:hash])
+    PostYear.create!(h: params[:hash], title: params[:title])
+    data = []
+    render :json => data
+  end
+
   private
 
   def to_uploaded(base64_param)

@@ -147,4 +147,46 @@ footer {
 
 .under {
   background: linear-gradient(transparent 70%, #ff99ab 30%);
-  }
+}
+
+.change_year {
+  background-color: red;
+  color: #FFFFFF;
+  font-family: "Nico Moji";
+  font-size: 15px;
+  padding: 1px 10px;
+  text-align: center;
+}
+
+// 以下、year特有のもの
+
+.header_year {
+  background-color: red;
+  color: #FFFFFF;
+  font-family: "Nico Moji";
+  font-size: 25px;
+  padding: 3px 10px;
+}
+
+.change_day {
+  background-color: #0059C8;
+  color: #FFFFFF;
+  font-family: "Nico Moji";
+  font-size: 15px;
+  padding: 1px 10px;
+  text-align: center;
+}
+
+// 画像確認ボタン
+.square_btn_year {
+  background-color: red;
+  color: #FFFFFF;
+  font-family: "Nico Moji";
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 8px;
+}
+
