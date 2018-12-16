@@ -449,6 +449,27 @@
           }
         });
 
+        // 凡例の微調整
+        var box_width = 40;
+        var font_size = 12;
+        var label_padding = 10;
+        var total_length = content1.length + content2.length + content3.length + content4.length + content5.length + content6.length + content7.length + content8.length + content9.length + content10.length
+        if(total_length > 60) {
+          box_width = 10;
+          font_size = 6;
+          label_padding = 5;
+        }else if(total_length > 50) {
+          box_width = 20;
+          font_size = 8;
+          label_padding = 5;
+        }else if(total_length > 40) {
+          box_width = 30;
+          font_size = 10;
+          label_padding = 5;
+        }else if(total_length > 30) {
+          label_padding = 5;
+        }
+
         var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
           type: 'horizontalBar',
@@ -456,6 +477,13 @@
             datasets: dataset
           },
           options: {
+            legend: {
+              labels:{
+                boxWidth: box_width,
+                fontsize: font_size,
+                padding: label_padding
+              }
+            },
             tooltips: {
               enabled: false
             },
