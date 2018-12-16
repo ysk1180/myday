@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   post 'make', to: 'posts#make'
   get 'year', to: 'posts#year', as: :year
   post 'make_year', to: 'posts#make_year'
+  get 'radar', to: 'posts#radar', as: :radar
+  post 'make_radar', to: 'posts#make_radar'
 end

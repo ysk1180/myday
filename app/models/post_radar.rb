@@ -1,0 +1,2 @@
+class PostRadar < ApplicationRecord
+end

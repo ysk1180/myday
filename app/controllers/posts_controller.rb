@@ -40,6 +40,27 @@ class PostsController < ApplicationController
     render :json => data
   end
 
+  def radar
+    @radar = true
+    @h = params[:h]
+    post = PostRadar.all
+    if post[-3].present?
+      @hash = PostRadar.last(3).pluck(:h)
+    elsif post[-2].present?
+      @hash = PostRadar.last(2).pluck(:h)
+    elsif post.present?
+      @hash = PostRadar.pluck(:h)
+    end
+    @count = post.count
+  end
+
+  def make_radar
+    generate(to_uploaded(params[:imgData]), params[:hash])
+    PostRadar.create!(h: params[:hash], title: params[:title])
+    data = []
+    render :json => data
+  end
+
   private
 
   def to_uploaded(base64_param)
