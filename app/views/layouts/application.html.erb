@@ -14,6 +14,8 @@
     <%# Twitterカード %>
     <% if @year %>
       <% twitter_card = get_twitter_card_info_year(@h ? @h : nil) %>
+    <% elsif @radar %>
+      <% twitter_card = get_twitter_card_info_radar(@h ? @h : nil) %>
     <% else %>
       <% twitter_card = get_twitter_card_info(@h ? @h : nil) %>
     <% end %>

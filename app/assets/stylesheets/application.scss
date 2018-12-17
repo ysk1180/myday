@@ -103,7 +103,13 @@ footer {
 // 画像確認ボタンここまで
 
 #example {
-  padding: 10px;
+  // padding: 10px;
+  text-align: center;
+}
+
+#description {
+  // padding: 10px;
+  text-align: center;
 }
 
 #chart-container {
@@ -190,3 +196,25 @@ footer {
   border-radius: 8px;
 }
 
+// 以下、ひょうか固有のもの
+
+.header_radar {
+  background-color: green;
+  color: #FFFFFF;
+  font-family: "Nico Moji";
+  font-size: 25px;
+  padding: 3px 10px;
+}
+
+// 画像確認ボタン
+.square_btn_radar {
+  background-color: green;
+  color: #FFFFFF;
+  font-family: "Nico Moji";
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 8px;
+}

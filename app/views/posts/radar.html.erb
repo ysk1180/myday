@@ -1,0 +1,445 @@
+<div class="header_radar">
+  <a href="/radar" style="color: white;">いちねん<small>を</small>さいてん</a>
+</div>
+<div class="change_day">
+  <a href="/" style="color: white;"><u>いちにち<small>を</small>シェア<small>は</small>こちら<small>から</small><i class="fa fa-mouse-pointer fa-fw"></i></u></a>
+</div>
+<div class="change_year">
+  <a href="/year" style="color: white;"><u>いちねん<small>を</small>シェア<small>は</small>こちら<small>から</small><i class="fa fa-mouse-pointer fa-fw"></i></u></a>
+</div>
+<div class="container">
+  <div>
+    <dl id="accordion">
+      <dt><i class="fa fa-clock-o fa-fw"></i>どんなサービス？</dt>
+      <dd>
+      <span class="under">自分の１年を採点してTwitterでシェア</span>できるサービスです<br>
+      <i class="fa fa-hand-o-down fa-fw"></i>こんなツイートが簡単にできます<br>
+      <%# <%= image_tag 'sample_radar.jpg', width: 315, class: 'sample' %>
+      </dd>
+      <dt><i class="fa fa-hand-o-up fa-fw"></i>使い方</dt>
+      <dd>
+      1. <span class="under">タイトル・項目①〜⑤・5段階評価</span>を入力<br>
+      （入力すると自動でグラフが出力されます）<br>
+      2. <span class="under">がぞうをつくるボタン→ツイートボタン</span>で<br>
+      　かんたんシェア<br>
+      （画像はTwitter上で自動で表示されます）
+      </dd>
+    </dl>
+  </div>
+
+  <div id='description'>
+    <i class="fa fa-lightbulb-o fa-fw"></i><i>各項目は<span class="under">自由に変えれるよ！</span></i>
+  </div>
+
+  <div id='example'>
+    <i>まずは<span class="under">5段階評価の星を押してみてね</span></i>
+  </div>
+
+  <%= form_with(model: @post, local: true, id: 'not_use') do |form| %>
+
+    <div class="form-row" id="form-title-start">
+      <div class="form-group col-12">
+        <small class="text-muted">今年１年のタイトル</small>
+        <%= form.text_area :title, id: :title, value: 'わたしの2018年', class:'form-control', rows:"1" %>
+      </div>
+    </div>
+
+    <div class="form-row" id="form-end1">
+      <div class="form-group col-8">
+        <small class="text-muted">項目①</small>
+        <%= form.text_area :content1, id: :content1, value: '仕事', class:'form-control', rows:"1" %>
+      </div>
+
+      <div class="form-group col-4">
+        <small class="text-muted">5段階評価</small>
+        <div class="field" id="star1">
+          <%= form.hidden_field :raiting, id: :end1 %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row" id="form-end2">
+      <div class="form-group col-8">
+        <small class="text-muted">項目②</small>
+        <%= form.text_area :content2, id: :content2, value: '趣味', class:'form-control', rows:"1" %>
+      </div>
+
+      <div class="form-group col-4">
+        <small class="text-muted">5段階評価</small>
+        <div class="field" id="star2">
+          <%= form.hidden_field :raiting, id: :end2 %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row" id="form-end3">
+      <div class="form-group col-8">
+        <small class="text-muted">項目③</small>
+        <%= form.text_area :content3, id: :content3, value: '恋愛・家庭', class:'form-control', rows:"1" %>
+      </div>
+
+      <div class="form-group col-4">
+        <small class="text-muted">5段階評価</small>
+        <div class="field" id="star3">
+          <%= form.hidden_field :raiting, id: :end3 %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row" id="form-end4">
+      <div class="form-group col-8">
+        <small class="text-muted">項目④</small>
+        <%= form.text_area :content4, id: :content4, value: '勉強', class:'form-control', rows:"1" %>
+      </div>
+
+      <div class="form-group col-4">
+        <small class="text-muted">5段階評価</small>
+        <div class="field" id="star4">
+          <%= form.hidden_field :raiting, id: :end4 %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row" id="form-end5">
+      <div class="form-group col-8">
+        <small class="text-muted">項目⑤</small>
+        <%= form.text_area :content5, id: :content5, value: '筋トレ', class:'form-control', rows:"1" %>
+      </div>
+
+      <div class="form-group col-4">
+        <small class="text-muted">5段階評価</small>
+        <div class="field" id="star5">
+          <%= form.hidden_field :raiting, id: :end5 %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div id="chart-container">
+    <canvas id="myChart" width="315" height="165"></canvas>
+  </div>
+
+  <div id="conf-button">
+    <button id="save-button" class="square_btn_radar"><i class="fa fa-check fa-fw"></i>がぞう<small>を</small>つくる</button>
+    <br>
+    <small class="text-muted">まだTwitterシェアされないよ</small>
+  </div>
+</div>
+
+<% if @hash.present? %>
+  <div id="recent-img">
+    <i class="fa fa-star fa-fw"></i>最近作成された画像<br>
+    <small class="text-muted">今までに<%= @count %>個の画像が作られたよ</small><br>
+    <% if @hash[2].present? %>
+      <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[2] %>.png" class="r-img"/>
+    <% end %>
+    <% if @hash[1].present? %>
+      <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[1] %>.png" class="r-img"/>
+    <% end %>
+    <img src="https://s3-ap-northeast-1.amazonaws.com/myday-production/images/<%= @hash[0] %>.png" class="r-img"/>
+  </div>
+<% end %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+<script>
+
+  $(function(){
+
+    const title_form = $("#title")
+    const start_form = $("#start")
+    const content1_form = $("#content1")
+    const end1_form = $("#end1")
+    const content2_form = $("#content2")
+    const end2_form = $("#end2")
+    const content3_form = $("#content3")
+    const end3_form = $("#end3")
+    const content4_form = $("#content4")
+    const end4_form = $("#end4")
+    const content5_form = $("#content5")
+    const end5_form = $("#end5")
+
+    title_form.blur(function(){
+      display();
+    });
+    start_form.change(function (){
+      display();
+    });
+    content1_form.blur(function(){
+      display();
+    });
+    end1_form.change(function (){
+      display();
+    });
+    content2_form.blur(function(){
+      display();
+    });
+    end2_form.change(function (){
+      display();
+    });
+    content3_form.blur(function(){
+      display();
+    });
+    end3_form.change(function (){
+      display();
+    });
+    content4_form.blur(function(){
+      display();
+    });
+    end4_form.change(function (){
+      display();
+    });
+    content5_form.blur(function(){
+      display();
+    });
+    end5_form.change(function (){
+      display();
+    });
+
+    var display = function (){
+      var title = $("#title").val();
+      var start = $("#start").val();
+      var content1 = $("#content1").val();
+      var end1 = $("#end1").val();
+      var content2 = $("#content2").val();
+      var end2 = $("#end2").val();
+      var content3 = $("#content3").val();
+      var end3 = $("#end3").val();
+      var content4 = $("#content4").val();
+      var end4 = $("#end4").val();
+      var content5 = $("#content5").val();
+      var end5 = $("#end5").val();
+
+      if (content1 != "" && end1 != "" && content2 != "" && end2 != "" && content3 != "" && end3 != ""){
+        $('#example').css('display','none');
+        $('#conf-button').css('display','block');
+        $('#myChart').css('display','inline-block');
+        $('#chart-container').css('height','170');
+
+        var label = [content1 + ' (' + end1 + ')'];
+        var data = [end1];
+
+        if (content2 != "" && end2 != "") {
+          label.push(content2 + ' (' + end2 + ')')
+          data.push(end2)
+        }
+        if (content3 != "" && end3 != "") {
+          label.push(content3 + ' (' + end3 + ')')
+          data.push(end3)
+        }
+        if (content4 != "" && end4 != "") {
+          label.push(content4 + ' (' + end4 + ')')
+          data.push(end4)
+        }
+        if (content5 != "" && end5 != "") {
+          label.push(content5 + ' (' + end5 + ')')
+          data.push(end5)
+        }
+
+        // 背景色の設定
+        Chart.plugins.register({
+          beforeDraw: function(ch){
+            var ctx = ch.chart.ctx;
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillRect(0, 0, ch.chart.width, ch.chart.height);
+          }
+        });
+
+        // 凡例の微調整
+        var font_size = 12;
+        var total_length = content1.length + content2.length + content3.length + content4.length + content5.length
+        if(total_length > 60) {
+          font_size = 6;
+        }else if(total_length > 50) {
+          font_size = 8;
+        }else if(total_length > 40) {
+          font_size = 10;
+        }else if(total_length > 30) {
+        }
+
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+          type: 'radar',
+          data: {
+            labels: label,
+            datasets: [{
+              backgroundColor: "rgba(153,255,51,0.4)",
+              borderColor: "rgba(153,255,51,1)",
+              data: data
+            }]
+          },
+          options: {
+            legend: {
+              display: false
+            },
+            tooltips: {
+              enabled: false
+            },
+            responsive: false,
+            title: {
+              display: true,
+              position: 'top',
+              text: title,
+              fontSize: 16,
+              padding: 1,
+            },
+            scale: {
+              pointLabels: {
+                fontSize: 11,
+              },
+              ticks: {
+                beginAtZero: true,
+                max: 5,
+                stepSize: 1,
+                fontSize: 10,
+              },
+            }
+          }
+        });
+
+        var canvas = document.getElementById('myChart');
+        canvas.width = 315;
+        canvas.height = 165;
+
+      } else {
+        console.log("入力が足りないよ〜");
+      }
+    }
+
+    $("#save-button").on("click", function () {
+      // 処理前に Loading 画像を表示
+      var data = ['大大吉','大吉','中吉','小吉','凶（ごめんね）'];
+      var word = data[Math.floor(Math.random() * data.length)];
+      dispLoading(`画像作成中...来年の運勢は...${word}`);
+
+      // 生成する文字列の長さ
+      var l = 8;
+      // 生成する文字列に含める文字セット
+      var c = "abcdefghijklmnopqrstuvwxyz0123456789";
+      var cl = c.length;
+      var hash = "";
+      for(var i=0; i<l; i++){
+        hash += c[Math.floor(Math.random()*cl)];
+      }
+
+      var myChart = document.getElementById("myChart");
+      var title = $("#title").val();
+
+      // Base64へ変換
+      var imgData = myChart.toDataURL();
+
+      $.ajax({
+        url: '/make_radar',
+        type: 'POST',
+        dataType: 'json',
+        async: true,
+        data: {imgData: imgData, hash: hash, title: title},
+      }).done(function(data){
+        removeLoading();
+        swal({
+          type: 'success',
+          // title: 'Let\'s BigTweet!',
+          text: '画像完成! Let\'s share!',
+          imageUrl: `https://s3-ap-northeast-1.amazonaws.com/myday-production/images/${hash}.png`,
+          imageWidth: 315,
+          imageAlt: 'Custom image',
+          showConfirmButton: false,
+          showCloseButton: true,
+          background: '#E6EFFA',
+          footer: `<a href=https://twitter.com/share?text=%23いちねんをシェア&url=https://showmyday.herokuapp.com/radar?h=${hash} class=modal_btn><i class="fa fa-twitter fa-fw"></i>Twitterシェア</a>`,
+        })
+      }).fail( function(data) {
+        removeLoading();
+        Swal({
+          type: 'error',
+          title: '画像作成に失敗しました...(; ;)',
+          text: 'もう一度「がぞうをつくる」ボタンを押してみてください(> <)',
+        })
+      });
+    });
+
+    // 星
+    $('#star1').raty({
+      size: 36,
+      starOff: '<%= asset_path('star-off.png') %>',
+      starOn: '<%= asset_path('star-on.png') %>',
+      hints: ['1', '2', '3', '4', '5'],
+      click: function(score, e) {
+        $("#end1").val(score)
+        display();
+      }
+    });
+    $('#star2').raty({
+      size: 36,
+      starOff: '<%= asset_path('star-off.png') %>',
+      starOn: '<%= asset_path('star-on.png') %>',
+      hints: ['1', '2', '3', '4', '5'],
+      click: function(score, e) {
+        $("#end2").val(score)
+        display();
+      }
+    });
+    $('#star3').raty({
+      size: 36,
+      starOff: '<%= asset_path('star-off.png') %>',
+      starOn: '<%= asset_path('star-on.png') %>',
+      hints: ['1', '2', '3', '4', '5'],
+      click: function(score, e) {
+        $("#end3").val(score)
+        display();
+      }
+    });
+    $('#star4').raty({
+      size: 36,
+      starOff: '<%= asset_path('star-off.png') %>',
+      starOn: '<%= asset_path('star-on.png') %>',
+      hints: ['1', '2', '3', '4', '5'],
+      click: function(score, e) {
+        $("#end4").val(score)
+        display();
+      }
+    });
+    $('#star5').raty({
+      size: 36,
+      starOff: '<%= asset_path('star-off.png') %>',
+      starOn: '<%= asset_path('star-on.png') %>',
+      hints: ['1', '2', '3', '4', '5'],
+      click: function(score, e) {
+        $("#end5").val(score)
+        display();
+      }
+    });
+
+  });
+
+// 使い方の説明など
+$(function() {
+  $('#accordion dd').hide();
+  $('#accordion dt').click(function(){
+    $(this).next('dd').slideToggle()
+  })
+});
+
+/* ------------------------------
+ Loading イメージ表示関数
+ 引数： msg 画面に表示する文言
+ ------------------------------ */
+function dispLoading(msg){
+  // 引数なし（メッセージなし）を許容
+  if( msg == undefined ){
+    msg = "";
+  }
+  // 画面表示メッセージ
+  var dispMsg = "<div class='loadingMsg'>" + msg + "</div>";
+  // ローディング画像が表示されていない場合のみ出力
+  if($("#loading").length == 0){
+    $("body").append("<div id='loading'>" + dispMsg + "</div>");
+  }
+}
+
+/* ------------------------------
+ Loading イメージ削除関数
+ ------------------------------ */
+function removeLoading(){
+  $("#loading").remove();
+}
+</script>
