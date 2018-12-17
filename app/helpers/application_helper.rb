@@ -38,9 +38,9 @@ module ApplicationHelper
       twitter_card[:url] = 'https://showmyday.herokuapp.com/radar'
       twitter_card[:image] = 'https://s3-ap-northeast-1.amazonaws.com/myday-production/images/xekls0rq.png'
     end
-    twitter_card[:title] = 'いちねんのひょうか'
+    twitter_card[:title] = 'いちねんのさいてん'
     twitter_card[:card] = 'summary_large_image'
-    twitter_card[:description] = '今年１年の評価をかんたんにTwitterでシェアできるサービスです'
+    twitter_card[:description] = 'あなたの今年１年の採点をかんたんにTwitterでシェアできるサービスです'
     twitter_card
   end
 end
