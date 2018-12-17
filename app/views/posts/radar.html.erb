@@ -1,5 +1,5 @@
 <div class="header_radar">
-  <a href="/radar" style="color: white;">いちねん<small>の</small>ひょうか</a>
+  <a href="/radar" style="color: white;">いちねん<small>を</small>さいてん</a>
 </div>
 <div class="change_day">
   <a href="/" style="color: white;"><u>いちにち<small>を</small>シェア<small>は</small>こちら<small>から</small><i class="fa fa-mouse-pointer fa-fw"></i></u></a>
@@ -12,7 +12,7 @@
     <dl id="accordion">
       <dt><i class="fa fa-clock-o fa-fw"></i>どんなサービス？</dt>
       <dd>
-      <span class="under">自分の１年をかんたんにTwitterでシェア</span>できるサービスです<br>
+      <span class="under">自分の１年を採点してTwitterでシェア</span>できるサービスです<br>
       <i class="fa fa-hand-o-down fa-fw"></i>こんなツイートが簡単にできます<br>
       <%# <%= image_tag 'sample_radar.jpg', width: 315, class: 'sample' %>
       </dd>
@@ -27,12 +27,20 @@
     </dl>
   </div>
 
+  <div id='description'>
+    <i class="fa fa-lightbulb-o fa-fw"></i><i>各項目は<span class="under">自由に変えれるよ！</span></i>
+  </div>
+
+  <div id='example'>
+    <i>まずは<span class="under">5段階評価の星を押してみてね</span></i>
+  </div>
+
   <%= form_with(model: @post, local: true, id: 'not_use') do |form| %>
 
     <div class="form-row" id="form-title-start">
       <div class="form-group col-12">
         <small class="text-muted">今年１年のタイトル</small>
-        <%= form.text_area :title, id: :title, placeholder: '例）飛躍の１年', class:'form-control', rows:"1" %>
+        <%= form.text_area :title, id: :title, value: 'わたしの2018年', class:'form-control', rows:"1" %>
       </div>
     </div>
 
@@ -106,10 +114,6 @@
       </div>
     </div>
   <% end %>
-
-  <div id='example'>
-    <i class="fa fa-lightbulb-o fa-fw"></i><span class="under"><i>タイトル・項目①〜⑤・5段階評価</span>を入力してみましょう！</i>
-  </div>
 
   <div id="chart-container">
     <canvas id="myChart" width="315" height="165"></canvas>
@@ -211,23 +215,23 @@
         $('#myChart').css('display','inline-block');
         $('#chart-container').css('height','170');
 
-        var label = [content1];
+        var label = [content1 + ' (' + end1 + ')'];
         var data = [end1];
 
         if (content2 != "" && end2 != "") {
-          label.push(content2)
+          label.push(content2 + ' (' + end2 + ')')
           data.push(end2)
         }
         if (content3 != "" && end3 != "") {
-          label.push(content3)
+          label.push(content3 + ' (' + end3 + ')')
           data.push(end3)
         }
         if (content4 != "" && end4 != "") {
-          label.push(content4)
+          label.push(content4 + ' (' + end4 + ')')
           data.push(end4)
         }
         if (content5 != "" && end5 != "") {
-          label.push(content5)
+          label.push(content5 + ' (' + end5 + ')')
           data.push(end5)
         }
 
