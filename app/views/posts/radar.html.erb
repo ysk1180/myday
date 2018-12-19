@@ -217,6 +217,7 @@
 
         var label = [content1 + ' (' + end1 + ')'];
         var data = [end1];
+        var bottom = 0;
 
         if (content2 != "" && end2 != "") {
           label.push(content2 + ' (' + end2 + ')')
@@ -229,10 +230,12 @@
         if (content4 != "" && end4 != "") {
           label.push(content4 + ' (' + end4 + ')')
           data.push(end4)
+          bottom = 8;
         }
         if (content5 != "" && end5 != "") {
           label.push(content5 + ' (' + end5 + ')')
           data.push(end5)
+          bottom = 8;
         }
 
         // 背景色の設定
@@ -268,6 +271,11 @@
             }]
           },
           options: {
+            layout: {
+              padding: {
+                bottom: bottom
+              }
+            },
             legend: {
               display: false
             },
@@ -291,6 +299,7 @@
                 max: 5,
                 stepSize: 1,
                 fontSize: 10,
+                display: false
               },
             }
           }
