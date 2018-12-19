@@ -242,7 +242,7 @@
         Chart.plugins.register({
           beforeDraw: function(ch){
             var ctx = ch.chart.ctx;
-            ctx.fillStyle = "#FFFFFF";
+            ctx.fillStyle = "#373737";
             ctx.fillRect(0, 0, ch.chart.width, ch.chart.height);
           }
         });
@@ -265,8 +265,12 @@
           data: {
             labels: label,
             datasets: [{
-              backgroundColor: "rgba(153,255,51,0.4)",
-              borderColor: "rgba(153,255,51,1)",
+              // backgroundColor: "rgba(153,255,51,0.4)",
+              // borderColor: "rgba(153,255,51,1)",
+              lineTension: 0.05,
+              backgroundColor: "rgba(242, 119, 122, 0.2)",
+              borderColor: "rgba(242, 119, 122, 1)",
+              pointBackgroundColor: "rgba(242, 119, 122, 1)",
               data: data
             }]
           },
@@ -288,20 +292,30 @@
               display: true,
               position: 'top',
               text: title,
-              fontSize: 16,
+              fontSize: 15,
               padding: 1,
+              fontColor: '#CCCCCC'
             },
             scale: {
+              angleLines: {
+                display: true,
+                lineWidth: 0.5,
+                color: 'rgba(128, 128, 128, 0.8)'
+              },
               pointLabels: {
                 fontSize: 11,
+                fontColor: 'rgba(204, 204, 204, 0.5)'
               },
               ticks: {
                 beginAtZero: true,
                 max: 5,
                 stepSize: 1,
                 fontSize: 10,
-                display: false
+                display: false,
               },
+              gridLines: {
+                color: 'rgba(128, 128, 128, 0.2)'
+              }
             }
           }
         });
