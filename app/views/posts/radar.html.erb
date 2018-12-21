@@ -252,32 +252,56 @@
         }
 
         // トグルボタン
-        var fillStyle = "#FFFFFF";
-        var backgroundColor = "rgba(153,255,51,0.4)";
-        var borderColor = "rgba(153,255,51,1)";
-        var pointBackgroundColor = "rgba(153,255,51,1)";
+        // var fillStyle = "#FFFFFF";
+        var backgroundColor = "rgba(0,90,160,0.4)";
+        var borderColor = "rgba(0,90,160,1)";
+        var pointBackgroundColor = "rgba(0,90,160,1)";
         var fontColor = "#666";
         var angleLineColor = "rgba(0, 0, 0, 0.1)";
         var pointLabelFontColor = '#666';
         var gridLineColor = 'rgba(0, 0, 0, 0.1)';
         var black = $('[name="black"]:checked').val();
         if (black){
-          fillStyle = "#373737";
-          backgroundColor = "rgba(242, 119, 122, 0.2)";
+          // fillStyle = "#373737";
+          backgroundColor = "rgba(242, 119, 122, 0.4)";
           borderColor = "rgba(242, 119, 122, 1)";
           pointBackgroundColor = "rgba(242, 119, 122, 1)";
           fontColor = '#CCCCCC';
           angleLineColor = 'rgba(128, 128, 128, 0.8)';
-          pointLabelFontColor = 'rgba(204, 204, 204, 0.5)';
-          gridLineColor = 'rgba(128, 128, 128, 0.2)';
+          pointLabelFontColor = 'rgba(204, 204, 204, 0.8)';
+          gridLineColor = 'rgba(128, 128, 128, 0.3)';
         }
 
         // 背景色の設定
         Chart.plugins.register({
           beforeDraw: function(ch){
             var ctx = ch.chart.ctx;
-            ctx.fillStyle = fillStyle;
-            ctx.fillRect(0, 0, ch.chart.width, ch.chart.height);
+            if(black == undefined){
+              for (let i = 0; i < 83; i++) {
+                for (let j = 0; j < 158; j++) {
+                  ctx.fillStyle = `rgb(
+                  ${Math.floor(255 - 0.4 * j)},
+                  ${Math.floor(255 - 0.1 * i)},
+                  ${Math.floor(255 - 0.01 * j)}
+                  `;
+                  ctx.fillRect(j * 2, i * 2, 2.5, 2.5);
+                  // 単一色の場合
+                  // ctx.fillStyle = fillStyle;
+                  // ctx.fillRect(0, 0, ch.chart.width, ch.chart.height);
+                }
+              }
+            }else{
+              for (let i = 0; i < 83; i++) {
+                for (let j = 0; j < 158; j++) {
+                  ctx.fillStyle = `rgb(
+                  ${Math.floor(0 + 0.7 * j)},
+                  ${Math.floor(0 + 0.01 * j)},
+                  ${Math.floor(0 + 0.1 * i)}
+                  `;
+                  ctx.fillRect(j * 2, i * 2, 2.5, 2.5);
+                }
+              }
+            }
           }
         });
 
