@@ -36,7 +36,7 @@ module ApplicationHelper
       twitter_card[:image] = "https://s3-ap-northeast-1.amazonaws.com/myday-production/images/#{h}.png"
     else
       twitter_card[:url] = 'https://showmyday.herokuapp.com/radar'
-      twitter_card[:image] = 'https://s3-ap-northeast-1.amazonaws.com/myday-production/images/xekls0rq.png'
+      twitter_card[:image] = 'https://s3-ap-northeast-1.amazonaws.com/myday-production/images/6zhpqajs.png'
     end
     twitter_card[:title] = 'いちねんのさいてん'
     twitter_card[:card] = 'summary_large_image'
