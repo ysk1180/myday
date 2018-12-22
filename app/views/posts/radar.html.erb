@@ -45,12 +45,12 @@
     </div>
 
     <div class="form-row" id="form-end1">
-      <div class="form-group col-8">
+      <div class="form-group col-7">
         <small class="text-muted">項目①</small>
         <%= form.text_area :content1, id: :content1, value: '仕事', class:'form-control', rows:"1" %>
       </div>
 
-      <div class="form-group col-4">
+      <div class="form-group col-5">
         <small class="text-muted">5段階評価</small>
         <div class="field" id="star1">
           <%= form.hidden_field :raiting, id: :end1 %>
@@ -59,12 +59,12 @@
     </div>
 
     <div class="form-row" id="form-end2">
-      <div class="form-group col-8">
+      <div class="form-group col-7">
         <small class="text-muted">項目②</small>
         <%= form.text_area :content2, id: :content2, value: '趣味', class:'form-control', rows:"1" %>
       </div>
 
-      <div class="form-group col-4">
+      <div class="form-group col-5">
         <small class="text-muted">5段階評価</small>
         <div class="field" id="star2">
           <%= form.hidden_field :raiting, id: :end2 %>
@@ -73,12 +73,12 @@
     </div>
 
     <div class="form-row" id="form-end3">
-      <div class="form-group col-8">
+      <div class="form-group col-7">
         <small class="text-muted">項目③</small>
         <%= form.text_area :content3, id: :content3, value: '恋愛・家庭', class:'form-control', rows:"1" %>
       </div>
 
-      <div class="form-group col-4">
+      <div class="form-group col-5">
         <small class="text-muted">5段階評価</small>
         <div class="field" id="star3">
           <%= form.hidden_field :raiting, id: :end3 %>
@@ -86,13 +86,13 @@
       </div>
     </div>
 
-    <div class="form-row" id="form-end4">
-      <div class="form-group col-8">
+    <div class="form-row" id="form-end5">
+      <div class="form-group col-7">
         <small class="text-muted">項目④</small>
         <%= form.text_area :content4, id: :content4, value: '勉強', class:'form-control', rows:"1" %>
       </div>
 
-      <div class="form-group col-4">
+      <div class="form-group col-5">
         <small class="text-muted">5段階評価</small>
         <div class="field" id="star4">
           <%= form.hidden_field :raiting, id: :end4 %>
@@ -101,12 +101,12 @@
     </div>
 
     <div class="form-row" id="form-end5">
-      <div class="form-group col-8">
+      <div class="form-group col-7">
         <small class="text-muted">項目⑤</small>
         <%= form.text_area :content5, id: :content5, value: '筋トレ', class:'form-control', rows:"1" %>
       </div>
 
-      <div class="form-group col-4">
+      <div class="form-group col-5">
         <small class="text-muted">5段階評価</small>
         <div class="field" id="star5">
           <%= form.hidden_field :raiting, id: :end5 %>
@@ -440,8 +440,8 @@
     // 星
     $('#star1').raty({
       size: 36,
-      starOff: '<%= asset_path('star-off.png') %>',
-      starOn: '<%= asset_path('star-on.png') %>',
+      starOff: '<%= asset_path('star-off-big.png') %>',
+      starOn: '<%= asset_path('star-on-big.png') %>',
       hints: ['1', '2', '3', '4', '5'],
       click: function(score, e) {
         $("#end1").val(score)
@@ -450,8 +450,8 @@
     });
     $('#star2').raty({
       size: 36,
-      starOff: '<%= asset_path('star-off.png') %>',
-      starOn: '<%= asset_path('star-on.png') %>',
+      starOff: '<%= asset_path('star-off-big.png') %>',
+      starOn: '<%= asset_path('star-on-big.png') %>',
       hints: ['1', '2', '3', '4', '5'],
       click: function(score, e) {
         $("#end2").val(score)
@@ -460,8 +460,8 @@
     });
     $('#star3').raty({
       size: 36,
-      starOff: '<%= asset_path('star-off.png') %>',
-      starOn: '<%= asset_path('star-on.png') %>',
+      starOff: '<%= asset_path('star-off-big.png') %>',
+      starOn: '<%= asset_path('star-on-big.png') %>',
       hints: ['1', '2', '3', '4', '5'],
       click: function(score, e) {
         $("#end3").val(score)
@@ -470,8 +470,8 @@
     });
     $('#star4').raty({
       size: 36,
-      starOff: '<%= asset_path('star-off.png') %>',
-      starOn: '<%= asset_path('star-on.png') %>',
+      starOff: '<%= asset_path('star-off-big.png') %>',
+      starOn: '<%= asset_path('star-on-big.png') %>',
       hints: ['1', '2', '3', '4', '5'],
       click: function(score, e) {
         $("#end4").val(score)
@@ -480,8 +480,8 @@
     });
     $('#star5').raty({
       size: 36,
-      starOff: '<%= asset_path('star-off.png') %>',
-      starOn: '<%= asset_path('star-on.png') %>',
+      starOff: '<%= asset_path('star-off-big.png') %>',
+      starOn: '<%= asset_path('star-on-big.png') %>',
       hints: ['1', '2', '3', '4', '5'],
       click: function(score, e) {
         $("#end5").val(score)
