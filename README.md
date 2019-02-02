@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サービス名
+| サービス名 | URL |
+|:-|:-|
+| いちにちをシェア | https://showmyday.herokuapp.com/ |
+| いちねんをシェア | https://showmyday.herokuapp.com/year |
+| レーダーチャートメーカー | https://showmyday.herokuapp.com/radar |
 
-Things you may want to cover:
+## 概要
+| サービス名 | URL |
+|:-|:-|
+| いちにちをシェア | 自分の１日をかんたんにTwitterでシェアできるサービス |
+| いちねんをシェア | 自分の今年１年をかんたんにTwitterでシェアできるサービス |
+| レーダーチャートメーカー | レーダーチャート付きのツイートを簡単にできるサービス |
 
-* Ruby version
+## サービス紹介ブログ
+[Twitterにグラフをシェアできるサービスを３つ作りました！〜サービスの紹介、作った背景、使った技術など〜](https://ysk-pro.hatenablog.com/entry/myday)
 
-* System dependencies
+## バージョン
+| Name | Version |
+|:-|:-|
+| Ruby | 2.5.1 |
+| Rails | 5.2.1 |
+| PostgreSQL | 11.1 |
 
-* Configuration
+## リリース日
+2018年12月15日
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 作者
+@ysk1180
