@@ -663,7 +663,7 @@
         data: {imgData: imgData, hash: hash, title: title},
       }).done(function(data){
         removeLoading();
-        swal({
+        Swal.fire({
           type: 'success',
           // title: 'Let\'s BigTweet!',
           text: '画像完成! Let\'s share!',
@@ -677,7 +677,7 @@
         })
       }).fail( function(data) {
         removeLoading();
-        Swal({
+        Swal.fire({
           type: 'error',
           title: '画像作成に失敗しました...(; ;)',
           text: 'もう一度「がぞうをつくる」ボタンを押してみてください(> <)',
